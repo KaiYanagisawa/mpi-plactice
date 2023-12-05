@@ -16,6 +16,7 @@
 #define DIR_DIAG 1
 #define DIR_LEFT 2
 #define DIR_UP 3
+#define LINE_MAX 2048
 
 /*
  *
