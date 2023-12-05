@@ -1,0 +1,810 @@
+Query sequence: 1_eSB6AdQWbQR4WwoHAEHO_583
+Database sequence: 64_dUSYUToyuqbiYpUf9hsU_46954
+Best score: 73
+Q:    392 HSRRLSLFDCT 402
+D:  32173 HSRRLALFNCT 32183
+
+Query sequence: 2_pjrCnFCRCQoHXpBWBbQd_104
+Database sequence: 48_P2psKzujMp73rFxDi9v7_48370
+Best score: 55
+Q:     95 LDTFSYP 101
+D:  22854 LDTFSYP 22860
+
+Query sequence: 3_9L4dy6qG2TS2ybnuFciK_176
+Database sequence: 41_P83rskPs8RAXKPxMasmg_51756
+Best score: 55
+Q:      1 MDFWLV 6
+D:  51580 MDFWLV 51585
+
+Query sequence: 3_9L4dy6qG2TS2ybnuFciK_176
+Database sequence: 49_F6NNV1Jx2v7NysZO7kPR_44220
+Best score: 55
+Q:      1 MDFWLV 6
+D:  25300 MDFWLV 25305
+
+Query sequence: 4_4jstRNZsVu4VbJK4maPJ_878
+Database sequence: 102_BmsUdBj5K6mxP4xDMQ4H_20051
+Best score: 63
+Q:    209 NWIARGRRAAETIGVE 224
+D:  19207 NWVARA-RADQTIAVE 19221
+
+Query sequence: 5_wOsPGV84IeF6jjAKTmM1_402
+Database sequence: 48_P2psKzujMp73rFxDi9v7_48370
+Best score: 59
+Q:     88 VDLDLKTFLNGQV 100
+D:  35205 VDLDLATFLQGEI 35217
+
+Query sequence: 6_7Nh9Pou1QGuAHFvKWlpu_259
+Database sequence: 119_500fNAyh3qHegpwHTgaF_38658
+Best score: 59
+Q:    132 RRLVEDPEAMGVA 144
+D:  33197 RRIVANPEALGIA 33209
+
+Query sequence: 7_jJZ0vmCxEFC7jjRfp4EH_118
+Database sequence: 11_yGZhtdA6NpxH7OhJmmm5_58891
+Best score: 64
+Q:     64 RDDWEII--TLSDDQEKRLNEEDTALD 88
+D:  53436 RDDNVVILATLNDDDNKRFEEDGSALE 53462
+
+Query sequence: 8_IWH5KrTDf9WhJQrBx4FE_154
+Database sequence: 40_NGEmpmUy9Mlx7A7OUCZA_28801
+Best score: 57
+Q:     29 PDERQQEQRE 38
+D:  11519 PQDRQQQQRE 11528
+
+Query sequence: 9_xIGsbeYLlTuXxHAxjxXm_267
+Database sequence: 53_exOEJb124GxohvBScsJi_23329
+Best score: 58
+Q:    237 EAALQSASNDLYRFNCSRLRPN 258
+D:  12141 EAALLPSSENLISFN--KLRPN 12160
+
+Query sequence: 10_bfrQVyVzVwsBO8JelEJ6_132
+Database sequence: 78_tRzz81n0kSaRE4LZCrar_59644
+Best score: 59
+Q:     41 LNRRIA--QKI-NRTADG------KVYEYTKL 63
+D:  55887 LSRRFTQQQKIGNLTANGENHVAAKLYEYTDL 55918
+
+Query sequence: 10_bfrQVyVzVwsBO8JelEJ6_132
+Database sequence: 92_Ko51v03tfSiNu7LxToBP_42831
+Best score: 59
+Q:     12 QDDNEADTVDCH 23
+D:  24363 QEDNEIETVTCH 24374
+
+Query sequence: 11_b9bk1FaFNJ475LNQ4Hzj_194
+Database sequence: 61_jwQ9j2QjJ5W0mIR38t5q_38514
+Best score: 59
+Q:    136 SMVVRENK-ALIAAMLGDPE 154
+D:  17021 SMVVKENKNTLI-RLLGNAE 17039
+
+Query sequence: 12_7AD9rzI3ZcXzbdzp8orf_118
+Database sequence: 14_7F99iEVf5qyBM2q3JQVn_45714
+Best score: 56
+Q:     89 SQDLFPPE 96
+D:  41571 SQELFPPE 41578
+
+Query sequence: 12_7AD9rzI3ZcXzbdzp8orf_118
+Database sequence: 18_FVNvaRReLMZmApyzc4mG_56455
+Best score: 56
+Q:      1 MSGEG-LRVVWDWME 14
+D:  31314 MTGEGRLPVHWQWLE 31328
+
+Query sequence: 13_RqFDstSh8dmq4P7C8bpT_160
+Database sequence: 66_e8a8R7IccSRvaXicC74p_58792
+Best score: 56
+Q:     91 ATVWKEI 97
+D:  53426 ATVWKEI 53432
+
+Query sequence: 13_RqFDstSh8dmq4P7C8bpT_160
+Database sequence: 77_42ItxTCF3AzXfuvw6zm1_46467
+Best score: 56
+Q:     11 LALRWRXY 18
+D:  22056 LALRWRAY 22063
+
+Query sequence: 14_PHWLlKvLAheEsEjIOcLx_277
+Database sequence: 113_f670VoJkQGqndQljO5Un_38091
+Best score: 64
+Q:    207 NDWGRGPYVE---QLPLQ----KEEE 225
+D:  37894 NDWGR---VEKARHMPLQVLIDKEEE 37916
+
+Query sequence: 15_FDMvg6hByxzB6IOiyDAv_237
+Database sequence: 18_FVNvaRReLMZmApyzc4mG_56455
+Best score: 65
+Q:     86 YEELDQKLELTP 97
+D:  22110 YEELHQRVELTP 22121
+
+Query sequence: 16_2l03PZELc7NhNI1apAdE_648
+Database sequence: 27_Lz0wz7IGWmbwirH5Pl42_16759
+Best score: 68
+Q:     52 EHIFEIDY 59
+D:  13530 EHIFEIDY 13537
+
+Query sequence: 17_a35tpagGbnatdXxOPEDX_260
+Database sequence: 73_hgByp2nernQB6dMloyr5_49737
+Best score: 62
+Q:    173 ARENVLERLVPHSF---EELT 190
+D:  12120 AREDVFVQLVPH-FHEVEELT 12139
+
+Query sequence: 18_Qsr1YVaD8TVqJJB3u3Jz_376
+Database sequence: 79_yciGhGJ3gEI1eB5pIL1G_59933
+Best score: 65
+Q:     43 YFPVMKKLLCA 53
+D:   7423 YFPVEKKMLCA 7433
+
+Query sequence: 19_5K8rVynstrTt2Ph1CwDc_394
+Database sequence: 77_42ItxTCF3AzXfuvw6zm1_46467
+Best score: 59
+Q:    148 VFITGLERMT 157
+D:  30078 VFITG-ERMT 30086
+
+Query sequence: 20_aPaWDZIORXxqhAmYJFf4_251
+Database sequence: 93_UYst2RIXeWUleU3NWuDv_58478
+Best score: 63
+Q:    144 NEDD-YIQQAPLLSENELAAVGPVTDAI 170
+D:  22418 NDDDTYIQ---MLMEEEIASVAKVTESV 22442
+
+Query sequence: 21_x9UhqAhTzhpw3lsmcb0S_611
+Database sequence: 7_HUcuawxIAHYcI26uTGon_30577
+Best score: 75
+Q:    316 ESEAMVNNSEGAPAL 330
+D:  25449 ENEAIINGSEGAPAL 25463
+
+Query sequence: 22_QapHiX413E1N7x2pjc2m_367
+Database sequence: 31_Pw0eysCLQ8JUDmRhp5Fo_36748
+Best score: 67
+Q:    273 VTNSLMVNIVMIML 286
+D:  34655 VTNMLLVEIAMVML 34668
+
+Query sequence: 23_SKF1wbJK9OAxpal0RK8r_278
+Database sequence: 29_z4UWEx2wlXiYJMTrH86l_59613
+Best score: 59
+Q:    162 ALTLLEEKASR 172
+D:  54942 ALTLLQEEASR 54952
+
+Query sequence: 23_SKF1wbJK9OAxpal0RK8r_278
+Database sequence: 91_66XOp07kT9chmZvzBEaN_39985
+Best score: 59
+Q:     35 RELEGVVN 42
+D:   8626 RELEGVVN 8633
+
+Query sequence: 24_RmMy4D94mv4BLxJGYAJu_316
+Database sequence: 20_HlFepRmvzTV2LgNo3y8z_30292
+Best score: 71
+Q:     38 VSVAAAFFSLE 48
+D:  10954 VSVAAAFFALE 10964
+
+Query sequence: 25_j4uYN3SOZgXTBWUWEfRd_282
+Database sequence: 56_mdjXOIKawdndvxYu5FqR_43419
+Best score: 57
+Q:    116 LEGITKYCSHF 126
+D:  31040 LEGATEYCNHF 31050
+
+Query sequence: 26_MkfB9OcCX4L5W6iko57r_226
+Database sequence: 49_F6NNV1Jx2v7NysZO7kPR_44220
+Best score: 58
+Q:     74 AKALAGDRMPEKK 86
+D:  32499 AKALSG-RMQEKK 32510
+
+Query sequence: 27_ekhoTqo64vzhV1Hihde3_765
+Database sequence: 29_z4UWEx2wlXiYJMTrH86l_59613
+Best score: 64
+Q:    610 EYILKRIAFLFVKTLSCSV 628
+D:   4985 DYILKPLDFPSRKTLSCSV 5003
+
+Query sequence: 28_AkPX3tEUH6aqFqHjsDS2_124
+Database sequence: 17_xTwALNmCp1IPaPbe7cNe_26325
+Best score: 65
+Q:     95 LLN-TDLMPWV 104
+D:  18274 LLNGTELMPWV 18284
+
+Query sequence: 29_Frn98XBHfWmqFI1IxJtw_75
+Database sequence: 119_500fNAyh3qHegpwHTgaF_38658
+Best score: 52
+Q:     16 IADKSMRNLAA 26
+D:  10790 IARKSMRGLAA 10800
+
+Query sequence: 30_O0npQsMGOucceVKXtrgY_367
+Database sequence: 29_z4UWEx2wlXiYJMTrH86l_59613
+Best score: 58
+Q:    323 LLEEKNRELDGQ 334
+D:  21721 LLECKNRELQGQ 21732
+
+Query sequence: 31_asD2bAB5LczSjK8RqpMk_706
+Database sequence: 28_cyHcCIEwHBl0kCP6hY21_45629
+Best score: 72
+Q:    687 KDTLLKEIALIINPD 701
+D:  44047 KDTILKGILLIISPD 44061
+
+Query sequence: 32_m1MdhCdJIFo32JT1Wp9i_271
+Database sequence: 2_EqMIawIH4PWYUS3P0eQj_51819
+Best score: 62
+Q:    209 PF-PFNNMPAMA 219
+D:  20728 PFIPFTNMPEMA 20739
+
+Query sequence: 33_4xSnSLOL7RTP5FXkPj1D_447
+Database sequence: 66_e8a8R7IccSRvaXicC74p_58792
+Best score: 60
+Q:    295 RRRVGTQKSGAYLAEKLEYLDE 316
+D:  32156 RRIVG-QKSGA-----MQYLDE 32171
+
+Query sequence: 34_aeV9yilfHKSJ52Wg96fS_86
+Database sequence: 54_eYbJxN0RRWJLXV1tbNXD_33333
+Best score: 72
+Q:     19 IFQTALSEQISN 30
+D:  16577 IFQTTLSAQISN 16588
+
+Query sequence: 35_jCR3C2DwPH1zug3S4xak_363
+Database sequence: 37_Tu57BAhDpVsJ5buqNgal_48078
+Best score: 62
+Q:    272 EEEEGMK-TTETE 283
+D:  38159 EDEDGMRETTETE 38171
+
+Query sequence: 36_MKtarzd16WUcPeKx8klB_469
+Database sequence: 87_nKstfyBNKwCmG0dxANAA_42260
+Best score: 57
+Q:    329 AFGNWNNAM-TL 339
+D:  31748 AFGNWNTALITL 31759
+
+Query sequence: 37_okiq7iDYNSxpcIbt4H0L_123
+Database sequence: 59_ymlLyTBFcLD3ZRHNYnX9_50520
+Best score: 54
+Q:    101 YALLGRMTAP 110
+D:  16379 YDLLGRMSSP 16388
+
+Query sequence: 38_vNOQI3ucdH35NT5MnsMW_160
+Database sequence: 107_G25QASvsxbTx1z4ITzGC_37750
+Best score: 62
+Q:     35 PRRQGRNSLSP 45
+D:  24075 PRRQNQNSLSP 24085
+
+Query sequence: 39_bU3nuonK4oqhCbd2fH98_223
+Database sequence: 9_pYLpJ1d82QqQzoUioHGw_21464
+Best score: 59
+Q:    184 IKKVAMVS 191
+D:  15285 IKKVAMVS 15292
+
+Query sequence: 40_tJab1aABHm7BgzS6LIOv_782
+Database sequence: 64_dUSYUToyuqbiYpUf9hsU_46954
+Best score: 70
+Q:    468 LAAALECIDINNKIVHL 484
+D:  13383 LAAALQRIDI-NKIEHL 13398
+
+Query sequence: 41_pnvJ9FK9FllMjd5E47Df_924
+Database sequence: 111_Wz6lDeyHQijIE5SCbV4u_47994
+Best score: 61
+Q:    297 ETELIESAKPKRT 309
+D:  12790 ETELLASARPKKT 12802
+
+Query sequence: 42_JUudYhPrOt9m4fgkIxGp_471
+Database sequence: 81_dWqHJDXAWEZaqeXZCwaU_25255
+Best score: 70
+Q:    361 EQNITINRSSKYEY 374
+D:  11083 EENIAIGRASKYEF 11096
+
+Query sequence: 43_P8uoTkeBLlxrTLV14Qf9_64
+Database sequence: 29_z4UWEx2wlXiYJMTrH86l_59613
+Best score: 57
+Q:     32 DVFAMPPP 39
+D:  39196 DVFGMPPP 39203
+
+Query sequence: 44_2TpMCM1F1vNA34RhZ7c3_907
+Database sequence: 44_s4QnwPB3IA0z6Hxo6MUd_42136
+Best score: 65
+Q:    893 TKN-YTVMGLKDFID 906
+D:   8306 TKNPYTHIALKDFID 8320
+
+Query sequence: 44_2TpMCM1F1vNA34RhZ7c3_907
+Database sequence: 114_rAfeLGx9g6EBvIOd7gZp_41026
+Best score: 65
+Q:    669 YQYNNKEFQ 677
+D:  19135 YQYNQKEFQ 19143
+
+Query sequence: 45_OQ10eEo4mPQMzEKV6135_63
+Database sequence: 66_e8a8R7IccSRvaXicC74p_58792
+Best score: 52
+Q:     36 TSMFSVA 42
+D:   2899 TSMFSVA 2905
+
+Query sequence: 46_MfHBRodeQMubLEHgKcPA_220
+Database sequence: 83_pwBFq98XPF9vvMQtZDd2_54686
+Best score: 65
+Q:     23 IKEKRLIYHVSNILTP--K-YKL 42
+D:  46879 IKEVRLIY-VVNVLAPELKIYKL 46900
+
+Query sequence: 47_ofBP20AetkyZ48Vj4vKp_801
+Database sequence: 79_yciGhGJ3gEI1eB5pIL1G_59933
+Best score: 77
+Q:    133 ITEL-NPQSLIMEDAVG 148
+D:  10791 ITELRNPDGIIMENAVG 10807
+
+Query sequence: 48_CozawegVTz8c8c0kpJqo_103
+Database sequence: 37_Tu57BAhDpVsJ5buqNgal_48078
+Best score: 54
+Q:     74 RDWYHA 79
+D:  35745 RDWYHA 35750
+
+Query sequence: 49_OXzkSKfHsqr3zKu7AyIZ_680
+Database sequence: 88_tKVVVaqKgHsx9CgsFoSP_26352
+Best score: 61
+Q:    295 IYFQKLGILLV 305
+D:   5521 IYFQKFGALLV 5531
+
+Query sequence: 50_vgNxasODtTrMBlC9uzDe_465
+Database sequence: 31_Pw0eysCLQ8JUDmRhp5Fo_36748
+Best score: 60
+Q:    217 MTRQRSHVPSDAAI 230
+D:    162 MTRRRTHIENEAAI 175
+
+Query sequence: 51_mw5oUo2ZQdzORlyk3tWe_3576
+Database sequence: 20_HlFepRmvzTV2LgNo3y8z_30292
+Best score: 70
+Q:   2463 FDSLDIPNVYN 2473
+D:   6330 FDPVDIPNVYN 6340
+
+Query sequence: 52_IVhzuieARTViDmHpfYIo_334
+Database sequence: 12_YOEHFkC2s1jcqqubCt5H_24387
+Best score: 60
+Q:    120 LMAVAAVHDITMVVEEELRANLEGR--NRV 147
+D:  13426 LMAAGALHDV-----EELRDKLTGKVVDRV 13450
+
+Query sequence: 53_stFPpb4rxG8M8ssmE3hd_1300
+Database sequence: 36_6670rw3Djzy8RwWC7RDI_53540
+Best score: 69
+Q:    809 TIKGKLSKTFSESILPP 825
+D:  19155 TIKGSLSKTVSQVVLPP 19171
+
+Query sequence: 54_I8EdslJbwFNGcdY0RDnT_415
+Database sequence: 64_dUSYUToyuqbiYpUf9hsU_46954
+Best score: 64
+Q:    113 LLTEEVGQHLRCVA 126
+D:  23356 LLTDEVKQNLRSVA 23369
+
+Query sequence: 54_I8EdslJbwFNGcdY0RDnT_415
+Database sequence: 113_f670VoJkQGqndQljO5Un_38091
+Best score: 64
+Q:    137 QGYISEFKWLIFS 149
+D:  24934 QNYISNIEWLIFS 24946
+
+Query sequence: 55_ODpfrjTCNOGW27KQOFE0_339
+Database sequence: 77_42ItxTCF3AzXfuvw6zm1_46467
+Best score: 58
+Q:    257 ETGEGRKDSIS--VITHNI 273
+D:  26294 ETGE--KGGITPLVITHNI 26310
+
+Query sequence: 56_Xpg03aRqxRGDfaLvcr9w_79
+Database sequence: 56_mdjXOIKawdndvxYu5FqR_43419
+Best score: 62
+Q:     23 SVGIVKVATAYSDYL 37
+D:   7278 STGIVDAAAGYSDYL 7292
+
+Query sequence: 57_J1e2SNFSPyEhwAR79o5n_786
+Database sequence: 14_7F99iEVf5qyBM2q3JQVn_45714
+Best score: 60
+Q:    430 WAFNKSSIAVADVALF 445
+D:  12472 WALEKGAIAVAIVAIF 12487
+
+Query sequence: 57_J1e2SNFSPyEhwAR79o5n_786
+Database sequence: 74_FeLZMhAqktnOe9ikMmD5_40286
+Best score: 60
+Q:    519 LQLGPDISGTVEGYD 533
+D:  35842 LQLGPDIDGKLQAYE 35856
+
+Query sequence: 58_HJmWfYXZB3KSybegyXuY_233
+Database sequence: 14_7F99iEVf5qyBM2q3JQVn_45714
+Best score: 59
+Q:    112 TVPIINLA 119
+D:  25220 TVPIINLA 25227
+
+Query sequence: 59_gEEjFoFPPW83JBXsn9lu_103
+Database sequence: 73_hgByp2nernQB6dMloyr5_49737
+Best score: 57
+Q:     87 CRRQKNIEN---YV 97
+D:  30974 CRRQKFIENDKDYV 30987
+
+Query sequence: 59_gEEjFoFPPW83JBXsn9lu_103
+Database sequence: 74_FeLZMhAqktnOe9ikMmD5_40286
+Best score: 57
+Q:     20 KRVRGHFILWLAEL 33
+D:  24269 KRIRGHF--WFDEL 24280
+
+Query sequence: 60_C4AGi9esxzbFymdX4GmP_167
+Database sequence: 15_V8MVX1DOaegsFgDF8NWu_45812
+Best score: 60
+Q:     61 TTTTNVRLRNLTR 73
+D:  15570 TTTTNVHLRLLPR 15582
+
+Query sequence: 61_sAnNDw8fci6bPPmbB8nF_914
+Database sequence: 6_feTVsisnNhi9LZ8eulHJ_19810
+Best score: 62
+Q:    524 DNYLEISKMYD 534
+D:   2790 DAYLETSRMYD 2800
+
+Query sequence: 61_sAnNDw8fci6bPPmbB8nF_914
+Database sequence: 102_BmsUdBj5K6mxP4xDMQ4H_20051
+Best score: 62
+Q:    757 DTPYNSGKRPMSER 770
+D:  13251 NTPYQSGK--MSER 13262
+
+Query sequence: 62_GqIAVn606hdIOcjmsxDG_133
+Database sequence: 96_EgRaSJ2WfVEAeGab6D5y_45770
+Best score: 57
+Q:    109 INLIEGVSSSHGNIYVV 125
+D:  42491 ISLVEGISTS--SVYVV 42505
+
+Query sequence: 63_DXmj1DH6RNs18cxvkeUO_120
+Database sequence: 98_MbMazq9lZy2fOaNECNnZ_44081
+Best score: 74
+Q:     14 EIELPNPPPFLTRS 27
+D:  10787 DIEMPNPAPLLTRS 10800
+
+Query sequence: 64_00gVndrzfrQH30Qr74wR_367
+Database sequence: 36_6670rw3Djzy8RwWC7RDI_53540
+Best score: 63
+Q:     44 VDAINTSSW 52
+D:  48498 VDSINTSSW 48506
+
+Query sequence: 65_g7GbDwxzRtGIO7drZBBy_111
+Database sequence: 81_dWqHJDXAWEZaqeXZCwaU_25255
+Best score: 60
+Q:     32 GAVSQDAGFYL 42
+D:  12030 GAVTQDAGMYL 12040
+
+Query sequence: 66_gOJCJehP5IfzSmDnUMyA_245
+Database sequence: 117_6Gu1SnB07odnIj4wO6Rs_34375
+Best score: 58
+Q:     79 LQETGMLRL 87
+D:   1386 LKETGMLRL 1394
+
+Query sequence: 67_n5KXrfrG7whNAIEKdWv3_767
+Database sequence: 96_EgRaSJ2WfVEAeGab6D5y_45770
+Best score: 70
+Q:    568 GETLRGLEGQYNLNRAPL--MRIPHLNAKKYTPILPKLYKDEEALDAT 613
+D:  12986 GQALRDL-GHYGLKLVPLVNMRIPHVWTEK------SLRKDEEQLEQT 13026
+
+Query sequence: 68_mszskjCReu1ZstcBl1wq_148
+Database sequence: 18_FVNvaRReLMZmApyzc4mG_56455
+Best score: 59
+Q:     47 ALAQFINKDPELGLDAAAG 65
+D:  30474 ALAAFVSNSPTLGLDAVGG 30492
+
+Query sequence: 69_uSkkN6gTCnWoXCJPnbXt_474
+Database sequence: 14_7F99iEVf5qyBM2q3JQVn_45714
+Best score: 63
+Q:     66 FWQVDVAGEDATYAATG 82
+D:  39603 FWQLDLTGHDSRFAATG 39619
+
+Query sequence: 69_uSkkN6gTCnWoXCJPnbXt_474
+Database sequence: 63_RQQA6asYQicPpMwB3EPU_17312
+Best score: 63
+Q:    141 EDESNLVWATYEPVDA-DATAVECDISEQLR 170
+D:   4722 ENQLNLVNASYE-IDNKDETAAQCCIVQQLR 4751
+
+Query sequence: 70_zOJsDFJSQc4Y1Bo9JLIr_119
+Database sequence: 55_6QrFSx0vgQVnHsu28c8n_46196
+Best score: 54
+Q:     96 EDREKVRR 103
+D:  18029 EDKEKVRR 18036
+
+Query sequence: 71_otQA9h2yeO5nnraipKRc_505
+Database sequence: 6_feTVsisnNhi9LZ8eulHJ_19810
+Best score: 61
+Q:    457 ERLQKAPAAIRKEL 470
+D:  19238 DRLQKDRASIRNEL 19251
+
+Query sequence: 71_otQA9h2yeO5nnraipKRc_505
+Database sequence: 21_PGfsHiV2NgssgXeyvmxS_18474
+Best score: 61
+Q:    350 DDEGEMMWTN 359
+D:   1084 EDQGEMMWLN 1093
+
+Query sequence: 72_JcyNxiUWeRliJoytpnvY_134
+Database sequence: 14_7F99iEVf5qyBM2q3JQVn_45714
+Best score: 58
+Q:     91 NRRKEIIAQL 100
+D:  11221 NRREEIITQL 11230
+
+Query sequence: 73_I2YGnklPuxIt11IGlYik_73
+Database sequence: 70_lqPnA3oBjr7jPbm5i5VF_34876
+Best score: 58
+Q:      5 LVDSTLRP 12
+D:   1912 LVDSTLRP 1919
+
+Query sequence: 74_7J2i9COr86EkbugdGOaX_204
+Database sequence: 31_Pw0eysCLQ8JUDmRhp5Fo_36748
+Best score: 56
+Q:     99 LLENLETLVAVLDFGQS 115
+D:  34017 LLETHETLVQGLIFGHS 34033
+
+Query sequence: 75_QcF7PVN7LoN5172pdMPP_225
+Database sequence: 8_8S2wSFoit0JOYo2VLUJ1_21769
+Best score: 61
+Q:     80 TSTIQNQSKNNNKKKRATYSIS 101
+D:    126 TATIKN--NNNNKDLRAYFSIS 145
+
+Query sequence: 76_k8zvdOTWNLY0XkyAEslH_117
+Database sequence: 15_V8MVX1DOaegsFgDF8NWu_45812
+Best score: 58
+Q:     99 DKEALAEPILD 109
+D:   6052 DKEALPEPSLD 6062
+
+Query sequence: 77_pkRrQJILVw2T6V9DHybV_205
+Database sequence: 40_NGEmpmUy9Mlx7A7OUCZA_28801
+Best score: 58
+Q:    111 QAQESRISISQLDGLVTT 128
+D:  19258 QALEASIEIAQLDQLIST 19275
+
+Query sequence: 78_4kQZJx6hrijKA0g2P3Zj_153
+Database sequence: 69_oI9oz5OUq7foZwUgaaP7_15810
+Best score: 56
+Q:      6 DPQLEIPQL--LHLQG 19
+D:   5327 DPQLQIAQVGSLHLKG 5342
+
+Query sequence: 79_whxsmJ90mIn898BvMVds_391
+Database sequence: 74_FeLZMhAqktnOe9ikMmD5_40286
+Best score: 59
+Q:    277 TTALKQEKD 285
+D:  17181 TTSLKQEKD 17189
+
+Query sequence: 80_s2D0heJb6CBZxw0pLK0u_557
+Database sequence: 80_NTuu95pgmHaKHUur5Bw5_31306
+Best score: 77
+Q:    468 IEYMDIQKGKLTLGARDQK 486
+D:  19251 IEYMDLAKSKLVLGGRARK 19269
+
+Query sequence: 81_IawkDUtzBAWey604kl81_92
+Database sequence: 22_nuomHGUdAlFpeqItNtUS_58220
+Best score: 57
+Q:     68 PLPLERGVIM 77
+D:  26764 PLPLHRAVIM 26773
+
+Query sequence: 82_AplUpKdkcuQNTYlMnOfK_2851
+Database sequence: 50_a01v89bLvZNSYSYJfRFo_23061
+Best score: 70
+Q:    105 FVFKGSK-DLIQL---ASASNI 122
+D:   4138 FMFKGMKSDLIQLPARASSANI 4159
+
+Query sequence: 83_jT9Cd1NuL0GP4zaXW8Ve_879
+Database sequence: 79_yciGhGJ3gEI1eB5pIL1G_59933
+Best score: 67
+Q:    166 VINC---TTNTTCFS 177
+D:  25390 VINCLEETTNPTCFS 25404
+
+Query sequence: 84_GNcx4QRUYLTCXy3EEULZ_232
+Database sequence: 93_UYst2RIXeWUleU3NWuDv_58478
+Best score: 61
+Q:    179 SKIKAGHLEEFGAGAR 194
+D:  36359 SKVRAASLEEFSAAAR 36374
+
+Query sequence: 85_U63Dh8CSirBKAhiEs2xJ_458
+Database sequence: 91_66XOp07kT9chmZvzBEaN_39985
+Best score: 64
+Q:    347 GTTHTTTLVDG 357
+D:  24901 GTSHSTTLVDG 24911
+
+Query sequence: 86_20kbhAtBJF69CO17gHlo_197
+Database sequence: 79_yciGhGJ3gEI1eB5pIL1G_59933
+Best score: 67
+Q:     62 RPLRWLLKKY 71
+D:   8896 RPLKWLLKRY 8905
+
+Query sequence: 87_rTgXhbQVEBwsGgdQmvS7_334
+Database sequence: 18_FVNvaRReLMZmApyzc4mG_56455
+Best score: 59
+Q:    120 WLARGV-KLSA-------IYKVE 134
+D:  23689 WLQKGVIKLSASKGEMPGIYKVE 23711
+
+Query sequence: 88_zyzpzvoMqSou1OrYFNak_331
+Database sequence: 4_tqncYZqYoGnZD0RdIg50_25710
+Best score: 63
+Q:    309 WFWLIGIP 316
+D:  13004 WFWLIGLP 13011
+
+Query sequence: 89_qhZlKvoYZYhjfDt92L6E_389
+Database sequence: 83_pwBFq98XPF9vvMQtZDd2_54686
+Best score: 59
+Q:    241 NEFEETAAKVG 251
+D:  25825 NEFEEAAAPVG 25835
+
+Query sequence: 90_uSDSOABqd7hS975CnUqS_125
+Database sequence: 41_P83rskPs8RAXKPxMasmg_51756
+Best score: 56
+Q:     78 KTGLSKMKDR 87
+D:  35762 KAGLSKLKDR 35771
+
+Query sequence: 90_uSDSOABqd7hS975CnUqS_125
+Database sequence: 116_Y8UknuEVge6YuiyB5lQc_24505
+Best score: 56
+Q:     24 QTWMAVLALR 33
+D:  23534 QAWMTVLDLR 23543
+
+Query sequence: 91_CwRBPNNraLdslEG4MSAE_901
+Database sequence: 90_m5H7eE9XYAd2kd4kzqt9_47746
+Best score: 67
+Q:     88 REAVADNGKVGR 99
+D:  11604 REAIPDNGKIGR 11615
+
+Query sequence: 92_VDxb5gpciWVyziZMOMW7_151
+Database sequence: 53_exOEJb124GxohvBScsJi_23329
+Best score: 62
+Q:     32 INFLKNKN 39
+D:  16447 INFLKNKN 16454
+
+Query sequence: 93_W1xApKX1TMwnausZ4zlb_356
+Database sequence: 84_L1C8YsueHSzgk7YMCDvf_31286
+Best score: 57
+Q:    158 AAGEDEDNWSY 168
+D:   9733 AASENDDNWKY 9743
+
+Query sequence: 93_W1xApKX1TMwnausZ4zlb_356
+Database sequence: 111_Wz6lDeyHQijIE5SCbV4u_47994
+Best score: 57
+Q:    296 WFVLGQAFYPD 306
+D:  21326 WFILGQV-YPD 21335
+
+Query sequence: 94_jKfAOhmOAvAeSetRkjt7_1477
+Database sequence: 69_oI9oz5OUq7foZwUgaaP7_15810
+Best score: 69
+Q:   1091 MERISSTTTV 1100
+D:  11111 MERVSSTTTV 11120
+
+Query sequence: 95_P4TX1P2hHkesuh0FrxUg_63
+Database sequence: 15_V8MVX1DOaegsFgDF8NWu_45812
+Best score: 52
+Q:     36 AQQGVINADLEEFSPGM 52
+D:  12027 AQQSLVNQELEDSNPGL 12043
+
+Query sequence: 96_ogrZuQ0Y1lw34fHCHe8x_467
+Database sequence: 64_dUSYUToyuqbiYpUf9hsU_46954
+Best score: 64
+Q:    196 PFDS--E-ESEDAWQSLIAVRM 214
+D:   5152 PFEAIHEIEAEEEWPDLVAVRM 5173
+
+Query sequence: 97_fDvgc5vnunsm54oQDqPZ_184
+Database sequence: 22_nuomHGUdAlFpeqItNtUS_58220
+Best score: 58
+Q:     86 KTLDLQGSIARNP 98
+D:  47717 KTLDLKGGLAKNP 47729
+
+Query sequence: 98_SXwJ9w0bt651ASIj7zht_331
+Database sequence: 44_s4QnwPB3IA0z6Hxo6MUd_42136
+Best score: 66
+Q:    147 QGEKAMADVELIAVF 161
+D:  30097 QGEKAMAEILLISIY 30111
+
+Query sequence: 99_5LCXgkjSGBPP6899kst6_772
+Database sequence: 71_9NB3FIzUaTKsyJGesrby_26579
+Best score: 61
+Q:     38 VSIHQPAKLYEVID 51
+D:  18742 VNIHQPARWYDILD 18755
+
+Query sequence: 100_KVCGyyEVEA4FEUgLeIYQ_264
+Database sequence: 89_rgOw1UEaDbrggkiSPTwo_19103
+Best score: 59
+Q:     58 AAQW--TMDE-RVERTFSSRGR 76
+D:  16748 ATQWPSILDDLRIEQAFSSRAR 16769
+
+Query sequence: 101_4n99u5Ct7U0ipwGCj1jI_192
+Database sequence: 91_66XOp07kT9chmZvzBEaN_39985
+Best score: 63
+Q:    115 YIPSTNLQDSVLIRERLD 132
+D:  18378 YIASQNLMQTASIRERLD 18395
+
+Query sequence: 102_GVVaFlDKzyhnRZ2s1KQt_197
+Database sequence: 96_EgRaSJ2WfVEAeGab6D5y_45770
+Best score: 62
+Q:      5 QFGWPAA---EASRLLE 18
+D:  32315 QFGWPAADTPEA--LLE 32329
+
+Query sequence: 103_L1TdACu0E5lKBBLaghRS_288
+Database sequence: 66_e8a8R7IccSRvaXicC74p_58792
+Best score: 56
+Q:    267 AGISQERII 275
+D:  36698 AGISQERFI 36706
+
+Query sequence: 104_5pBQFeWPqQjirW6p8UPo_810
+Database sequence: 23_I3b3DHRdpiu6WZEe2UvP_39299
+Best score: 63
+Q:     98 EVEAATASPRDH 109
+D:  26682 EVEAATAIPSDH 26693
+
+Query sequence: 105_uyez3BrOjLUM9xWcgeM9_3336
+Database sequence: 10_CVpbRTzv4y7ibiAomLWX_26768
+Best score: 69
+Q:   2831 RQLKIFNFNTLT 2842
+D:  16443 RQLKAFNINTLT 16454
+
+Query sequence: 106_T1DEIMvbhWcVaJ3s7r1K_467
+Database sequence: 82_1MLr8A6Akvoyywwb1gca_45147
+Best score: 58
+Q:    108 GLTKTEDGGRQQ 119
+D:  28908 GLAKIEDVGRQQ 28919
+
+Query sequence: 107_Oa4XeSQ8Q0pks0aG7I5u_183
+Database sequence: 80_NTuu95pgmHaKHUur5Bw5_31306
+Best score: 55
+Q:      3 DPEDGGIVLATVV 15
+D:    434 DPE--GIVLAVVV 444
+
+Query sequence: 108_zqs8w6Zoh2URsGq1FVA2_466
+Database sequence: 48_P2psKzujMp73rFxDi9v7_48370
+Best score: 66
+Q:    109 FLYKYILEEVVI 120
+D:  24290 FLYSYELDEVVI 24301
+
+Query sequence: 109_xurlNZ1S7KbihMiwzpOo_241
+Database sequence: 27_Lz0wz7IGWmbwirH5Pl42_16759
+Best score: 65
+Q:     99 YEPIVHRLYE 108
+D:  14805 YDTIVHRLYE 14814
+
+Query sequence: 110_BrcJr6ESqryyiLroQ3RX_177
+Database sequence: 44_s4QnwPB3IA0z6Hxo6MUd_42136
+Best score: 61
+Q:    150 QLHLTLGH-KIPF 161
+D:  15221 QLRLTLGHPNIPF 15233
+
+Query sequence: 111_sHa0DJJ7DTCsW5EMWN5O_170
+Database sequence: 17_xTwALNmCp1IPaPbe7cNe_26325
+Best score: 62
+Q:    106 DLVAESG--AEDKIH 118
+D:  15869 DLIAESGIAAENRIH 15883
+
+Query sequence: 112_vNPwp2wTAgTML0XwfMd6_929
+Database sequence: 45_pXdKvr3SAU2t6LSMRBqa_31561
+Best score: 62
+Q:    413 RGESFIYDTWSFKSCELTKTLSES 436
+D:  30735 RGELFFYDSW-------TRSLSES 30751
+
+Query sequence: 113_AC4AwZhCHL5L4o8gGIZ4_311
+Database sequence: 17_xTwALNmCp1IPaPbe7cNe_26325
+Best score: 61
+Q:     59 VDWAFGFVPE 68
+D:  13780 VEWAFAFVPD 13789
+
+Query sequence: 114_p7rfV8XvbqzwM12i9FM0_165
+Database sequence: 106_f8F4SP7taGWkQfp3IDZg_42837
+Best score: 64
+Q:    117 RFIAAIA--SFEDPA 129
+D:   8630 RFIAAIAAGSFSEPA 8644
+
+Query sequence: 115_sGT11YngU6Q8Pyej71ce_308
+Database sequence: 70_lqPnA3oBjr7jPbm5i5VF_34876
+Best score: 67
+Q:    117 SSLTKI--YAASLSLLDQ 132
+D:  21691 SSLTKIIGYAGAFSLLDE 21708
+
+Query sequence: 116_xtIKJRxTpNV3k93DAytF_111
+Database sequence: 49_F6NNV1Jx2v7NysZO7kPR_44220
+Best score: 61
+Q:     31 LQHREAEL 38
+D:  15406 LQHREAEL 15413
+
+Query sequence: 117_ggnhAs1qJAMzuHmFPhfE_307
+Database sequence: 55_6QrFSx0vgQVnHsu28c8n_46196
+Best score: 66
+Q:     43 RHSLGKRYQRSLQNQ----TVKLFL 63
+D:  27780 RHSLGNR-QRA--NQKLANIVKLFL 27801
+
+Query sequence: 118_aDXcscm9VBZJS7svq2zg_93
+Database sequence: 29_z4UWEx2wlXiYJMTrH86l_59613
+Best score: 62
+Q:     31 DEDSVC------VIRKLA 42
+D:  50224 DEESVCSPFSDGVIRKLA 50241
+
+Query sequence: 119_PHaaK0brR3dmmuG5uv6X_395
+Database sequence: 22_nuomHGUdAlFpeqItNtUS_58220
+Best score: 63
+Q:     78 LKEEEVEKYINAVRR 92
+D:  22057 LNQAEVEKSIEAVRR 22071
+
+Query sequence: 120_4ofQPTvQhzhWJvpzOgbG_146
+Database sequence: 28_cyHcCIEwHBl0kCP6hY21_45629
+Best score: 61
+Q:     49 VERVTPFLN 57
+D:      5 VERMTPFLN 13
+
+Query sequence: 120_4ofQPTvQhzhWJvpzOgbG_146
+Database sequence: 110_BoAxAwiWBzNm2iIIvaIL_27306
+Best score: 61
+Q:     45 YRCTVERVTP 54
+D:  18539 YRCTVENITP 18548
+
