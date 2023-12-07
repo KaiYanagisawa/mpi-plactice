@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
   double start_time, end_time;
   int rank, size;
   int parallel_array[NUM];
+  int j_position;
   MPI_Init(&argc, &argv);
   MPI_Status status;
   MPI_Comm_size(MPI_COMM_WORLD, &size);
@@ -54,27 +55,22 @@ int main(int argc, char *argv[])
 
     start_time = get_time();
 
-    int j_position = NUM - 1;
-    for (int i = 0; i < NUM; i++)
+    int p = 0, q = NUM - 1;
+    while (p < q)
     {
-      if (parallel_array[i] <= NUM / 2)
-        continue;
-      if (i > j_position)
-        break;
-      for (int j = j_position; j > i; j--)
+      while (parallel_array[p] < LMT / 2)
+        p++;
+      while (parallel_array[q] >= LMT / 2)
+        q--;
+      if (p < q)
       {
-        if (parallel_array[j] < NUM / 2)
-        {
-          int tmp = parallel_array[i];
-          parallel_array[i] = parallel_array[j];
-          parallel_array[j] = tmp;
-
-          j_position = j - 1;
-
-          break;
-        }
+        int tmp = parallel_array[p];
+        parallel_array[p] = parallel_array[q];
+        parallel_array[q] = tmp;
       }
     }
+    j_position = p;
+
     printf("===== after swap =====\n");
     print_array(NUM, parallel_array);
 
