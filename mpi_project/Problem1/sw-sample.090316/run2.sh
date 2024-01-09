@@ -16,3 +16,7 @@ LOG=$DIR/log.$DATE
 echo "# testset $DIR"
 $TIMECMD -o $LOG $BIN $SCOREMATRIX $QUERY $DATABASE > $OUTPUT
 cat $LOG
+
+P0SAMPLE=p0/output.sample
+DIFF=`diff $P0SAMPLE $OUTPUT`
+echo "# diff = $DIFF"
