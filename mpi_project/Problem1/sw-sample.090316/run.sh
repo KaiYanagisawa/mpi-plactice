@@ -14,3 +14,7 @@ LOG=$DIR/log.$DATE
 
 echo "# testset $DIR"
 $BIN $SCOREMATRIX $QUERY $DATABASE > $OUTPUT
+
+P0SAMPLE=p0/output.sample
+DIFF=`diff $P0SAMPLE $OUTPUT`
+echo "# diff = $DIFF"
