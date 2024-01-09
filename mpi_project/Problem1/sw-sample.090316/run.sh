@@ -17,4 +17,8 @@ $BIN $SCOREMATRIX $QUERY $DATABASE > $OUTPUT
 
 P0SAMPLE=p0/output.sample
 DIFF=`diff $P0SAMPLE $OUTPUT`
-echo "# diff = $DIFF"
+if [ -n "$DIFF" ]; then
+  echo "# diff = $DIFF"
+else
+  echo "# matches sample output"
+fi
