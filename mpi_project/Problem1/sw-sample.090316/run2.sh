@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #
-BIN=./sw-mpi
+BIN=./sw-sample
 TIMECMD="/usr/bin/time -p"
 
 DIR=${1:-p0}
@@ -20,7 +20,7 @@ cat $LOG
 P0SAMPLE=p0/output.sample
 DIFF=`diff $P0SAMPLE $OUTPUT`
 if [ -n "$DIFF" ]; then
-  echo "# diff = $DIFF"
+  echo "# not matches sample output"
 else
   echo "# matches sample output"
 fi
