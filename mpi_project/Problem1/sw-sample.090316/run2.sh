@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #
-BIN=./sw-sample
+BIN=./sw-mpi
 TIMECMD="/usr/bin/time -p"
 
 DIR=${1:-p0}
