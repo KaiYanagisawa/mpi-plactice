@@ -1,7 +1,8 @@
 #!/bin/bash
 #
 #
-BIN=./sw-mpi
+CORE=${2:2}
+BIN="mpiexec -n $CORE ./sw-mpi"
 TIMECMD="/usr/bin/time -p"
 
 DIR=${1:-p0}
