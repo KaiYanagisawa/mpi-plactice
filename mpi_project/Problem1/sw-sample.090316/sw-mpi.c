@@ -769,6 +769,10 @@ int main(int argc, char **argv)
 
 	if (rank == 0)
 	{
+		int query_number_per_rank;
+		int surplus_query_number_per_rank;
+		int rank0_query_number;
+
 		assert(argc >= 4);
 		file_matrix = argv[1];
 		file_query = argv[2];
@@ -777,6 +781,11 @@ int main(int argc, char **argv)
 		load_score_matrix(file_matrix);
 		load_sequence_set(file_query, &query_set);
 		load_sequence_set(file_database, &database_set);
+
+		query_number_per_rank         = query_set.num / size;
+		surplus_query_number_per_rank = query_set.num % size;
+		rank0_query_number 	          = query_number_per_rank +
+																		((surplus_query_number_per_rank > 0) ? 1 : 0);
 
 		/*
 		 *
