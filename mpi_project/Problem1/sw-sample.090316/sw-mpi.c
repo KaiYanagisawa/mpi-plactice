@@ -11,6 +11,7 @@
 #include <errno.h>
 #include <ctype.h>
 #include <limits.h>
+#include <mpi.h>
 
 #define DIR_NONE 0
 #define DIR_DIAG 1
@@ -686,6 +687,53 @@ int get_smith_waterman_score(sequence *seq0, sequence *seq1)
 	return best_score;
 }
 
+MPI_Datatype create_mpi_sequence_type(sequence *sequence_for_address)
+{
+    MPI_Datatype sequence_type;
+    int sequence_block_lengths[4] = {1, 1, 1, 1};
+    MPI_Aint sequence_displacements[4];
+    MPI_Datatype sequence_types[4] = {MPI_INT, MPI_CHAR, MPI_CHAR, MPI_INT};
+
+    MPI_Address(&sequence_for_address->len, &sequence_displacements[0]);
+    MPI_Address(&sequence_for_address->name, &sequence_displacements[1]);
+    MPI_Address(&sequence_for_address->array, &sequence_displacements[2]);
+    MPI_Address(&sequence_for_address->score, &sequence_displacements[3]);
+
+    MPI_Aint sequence_base;
+    MPI_Address(sequence_for_address, &sequence_base);
+
+    for (int i = 0; i < 4; i++)
+        sequence_displacements[i] -= sequence_base;
+
+    MPI_Type_struct(4, sequence_block_lengths, sequence_displacements, sequence_types, &sequence_type);
+    MPI_Type_commit(&sequence_type);
+
+    return sequence_type;
+}
+
+MPI_Datatype create_mpi_sequence_set_type(sequence_set *query_set)
+{
+    MPI_Datatype sequence_set_type;
+    int sequence_set_block_lengths[3] = {1, 1, 1};
+    MPI_Aint sequence_set_displacements[3];
+    MPI_Datatype sequence_set_types[3] = {MPI_INT, MPI_INT, MPI_UB};
+
+    MPI_Address(&query_set->num, &sequence_set_displacements[0]);
+    MPI_Address(&query_set->max, &sequence_set_displacements[1]);
+    MPI_Address(&query_set->seq[0], &sequence_set_displacements[2]);
+
+    MPI_Aint sequence_set_base;
+    MPI_Address(query_set, &sequence_set_base);
+
+    for (int i = 0; i < 3; i++)
+        sequence_set_displacements[i] -= sequence_set_base;
+
+    MPI_Type_struct(3, sequence_set_block_lengths, sequence_set_displacements, sequence_set_types, &sequence_set_type);
+    MPI_Type_commit(&sequence_set_type);
+
+    return sequence_set_type;
+}
+
 /*
  *
  */
@@ -698,9 +746,18 @@ int main(int argc, char **argv)
 	int id_database;
 	int best_score;
 	int score;
+	int rank, size;
+	MPI_Status status;
+	MPI_Init(&argc, &argv);
+	MPI_Comm_size(MPI_COMM_WORLD, &size);
+	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
 	sequence_set query_set;
 	sequence_set database_set;
+
+	sequence sequence_for_address;
+	MPI_Datatype sequence_type = create_mpi_sequence_type(&sequence_for_address);
+	MPI_Datatype sequence_set_type = create_mpi_sequence_set_type(&query_set);
 
 	assert(argc >= 4);
 	file_matrix = argv[1];
@@ -746,6 +803,10 @@ int main(int argc, char **argv)
 										 &(database_set.seq[id_database]));
 		}
 	}
+
+	MPI_Type_free(&sequence_type);
+	MPI_Type_free(&sequence_set_type);
+	MPI_Finalize();
 
 	return 0;
 }
