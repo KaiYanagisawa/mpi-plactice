@@ -689,49 +689,49 @@ int get_smith_waterman_score(sequence *seq0, sequence *seq1)
 
 MPI_Datatype create_mpi_sequence_type(sequence *sequence_for_address)
 {
-    MPI_Datatype sequence_type;
-    int sequence_block_lengths[4] = {1, 1, 1, 1};
-    MPI_Aint sequence_displacements[4];
-    MPI_Datatype sequence_types[4] = {MPI_INT, MPI_CHAR, MPI_CHAR, MPI_INT};
+	MPI_Datatype sequence_type;
+	int sequence_block_lengths[4] = {1, 1, 1, 1};
+	MPI_Aint sequence_displacements[4];
+	MPI_Datatype sequence_types[4] = {MPI_INT, MPI_CHAR, MPI_CHAR, MPI_INT};
 
-    MPI_Address(&sequence_for_address->len, &sequence_displacements[0]);
-    MPI_Address(&sequence_for_address->name, &sequence_displacements[1]);
-    MPI_Address(&sequence_for_address->array, &sequence_displacements[2]);
-    MPI_Address(&sequence_for_address->score, &sequence_displacements[3]);
+	MPI_Address(&sequence_for_address->len, &sequence_displacements[0]);
+	MPI_Address(&sequence_for_address->name, &sequence_displacements[1]);
+	MPI_Address(&sequence_for_address->array, &sequence_displacements[2]);
+	MPI_Address(&sequence_for_address->score, &sequence_displacements[3]);
 
-    MPI_Aint sequence_base;
-    MPI_Address(sequence_for_address, &sequence_base);
+	MPI_Aint sequence_base;
+	MPI_Address(sequence_for_address, &sequence_base);
 
-    for (int i = 0; i < 4; i++)
-        sequence_displacements[i] -= sequence_base;
+	for (int i = 0; i < 4; i++)
+		sequence_displacements[i] -= sequence_base;
 
-    MPI_Type_struct(4, sequence_block_lengths, sequence_displacements, sequence_types, &sequence_type);
-    MPI_Type_commit(&sequence_type);
+	MPI_Type_struct(4, sequence_block_lengths, sequence_displacements, sequence_types, &sequence_type);
+	MPI_Type_commit(&sequence_type);
 
-    return sequence_type;
+	return sequence_type;
 }
 
 MPI_Datatype create_mpi_sequence_set_type(sequence_set *query_set)
 {
-    MPI_Datatype sequence_set_type;
-    int sequence_set_block_lengths[3] = {1, 1, 1};
-    MPI_Aint sequence_set_displacements[3];
-    MPI_Datatype sequence_set_types[3] = {MPI_INT, MPI_INT, MPI_UB};
+	MPI_Datatype sequence_set_type;
+	int sequence_set_block_lengths[3] = {1, 1, 1};
+	MPI_Aint sequence_set_displacements[3];
+	MPI_Datatype sequence_set_types[3] = {MPI_INT, MPI_INT, MPI_UB};
 
-    MPI_Address(&query_set->num, &sequence_set_displacements[0]);
-    MPI_Address(&query_set->max, &sequence_set_displacements[1]);
-    MPI_Address(&query_set->seq[0], &sequence_set_displacements[2]);
+	MPI_Address(&query_set->num, &sequence_set_displacements[0]);
+	MPI_Address(&query_set->max, &sequence_set_displacements[1]);
+	MPI_Address(&query_set->seq[0], &sequence_set_displacements[2]);
 
-    MPI_Aint sequence_set_base;
-    MPI_Address(query_set, &sequence_set_base);
+	MPI_Aint sequence_set_base;
+	MPI_Address(query_set, &sequence_set_base);
 
-    for (int i = 0; i < 3; i++)
-        sequence_set_displacements[i] -= sequence_set_base;
+	for (int i = 0; i < 3; i++)
+		sequence_set_displacements[i] -= sequence_set_base;
 
-    MPI_Type_struct(3, sequence_set_block_lengths, sequence_set_displacements, sequence_set_types, &sequence_set_type);
-    MPI_Type_commit(&sequence_set_type);
+	MPI_Type_struct(3, sequence_set_block_lengths, sequence_set_displacements, sequence_set_types, &sequence_set_type);
+	MPI_Type_commit(&sequence_set_type);
 
-    return sequence_set_type;
+	return sequence_set_type;
 }
 
 /*
@@ -759,48 +759,49 @@ int main(int argc, char **argv)
 	MPI_Datatype sequence_type = create_mpi_sequence_type(&sequence_for_address);
 	MPI_Datatype sequence_set_type = create_mpi_sequence_set_type(&query_set);
 
-	assert(argc >= 4);
-	file_matrix = argv[1];
-	file_query = argv[2];
-	file_database = argv[3];
-
-	load_score_matrix(file_matrix);
-	load_sequence_set(file_query, &query_set);
-	load_sequence_set(file_database, &database_set);
-
-	/*
-	 *
-	 */
-	for (id_query = 0; id_query < query_set.num; id_query++)
+	if (rank == 0)
 	{
+		assert(argc >= 4);
+		file_matrix = argv[1];
+		file_query = argv[2];
+		file_database = argv[3];
+
+		load_score_matrix(file_matrix);
+		load_sequence_set(file_query, &query_set);
+		load_sequence_set(file_database, &database_set);
 
 		/*
-		 *  look for the best score of the query sequence.
+		 *
 		 */
-		best_score = -1;
-
-		for (id_database = 0; id_database < database_set.num; id_database++)
+		for (id_query = 0; id_query < query_set.num; id_query++)
 		{
 
-			score = get_smith_waterman_score(&(query_set.seq[id_query]),
-																			 &(database_set.seq[id_database]));
-			if (best_score < score)
+			/*
+			 *  look for the best score of the query sequence.
+			 */
+			best_score = -1;
+
+			for (id_database = 0; id_database < database_set.num; id_database++)
 			{
-				best_score = score;
+				score = get_smith_waterman_score(&(query_set.seq[id_query]),
+																				 &(database_set.seq[id_database]));
+				if (best_score < score)
+				{
+					best_score = score;
+				}
+				database_set.seq[id_database].score = score;
 			}
-			database_set.seq[id_database].score = score;
-		}
 
-		query_set.seq[id_query].score = best_score;
+			query_set.seq[id_query].score = best_score;
 
-		/*
-		 *  show alignment of sequence pairs at the best score.
-		 */
-		for (id_database = 0; id_database < database_set.num; id_database++)
-		{
-
-			show_alignment(&(query_set.seq[id_query]),
-										 &(database_set.seq[id_database]));
+			/*
+			 *  show alignment of sequence pairs at the best score.
+			 */
+			for (id_database = 0; id_database < database_set.num; id_database++)
+			{
+				show_alignment(&(query_set.seq[id_query]),
+											 &(database_set.seq[id_database]));
+			}
 		}
 	}
 
