@@ -705,7 +705,11 @@ MPI_Datatype create_mpi_sequence_type(sequence *sequence_for_address)
 	for (int i = 0; i < 4; i++)
 		sequence_displacements[i] -= sequence_base;
 
-	MPI_Type_struct(4, sequence_block_lengths, sequence_displacements, sequence_types, &sequence_type);
+	MPI_Type_struct(4,
+									sequence_block_lengths,
+									sequence_displacements,
+									sequence_types,
+									&sequence_type);
 	MPI_Type_commit(&sequence_type);
 
 	return sequence_type;
@@ -728,7 +732,11 @@ MPI_Datatype create_mpi_sequence_set_type(sequence_set *query_set)
 	for (int i = 0; i < 3; i++)
 		sequence_set_displacements[i] -= sequence_set_base;
 
-	MPI_Type_struct(3, sequence_set_block_lengths, sequence_set_displacements, sequence_set_types, &sequence_set_type);
+	MPI_Type_struct(3,
+									sequence_set_block_lengths,
+									sequence_set_displacements,
+									sequence_set_types,
+									&sequence_set_type);
 	MPI_Type_commit(&sequence_set_type);
 
 	return sequence_set_type;
