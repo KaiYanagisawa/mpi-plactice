@@ -783,7 +783,6 @@ int main(int argc, char **argv)
 		 */
 		for (id_query = 0; id_query < query_set.num; id_query++)
 		{
-
 			/*
 			 *  look for the best score of the query sequence.
 			 */
