@@ -789,9 +789,9 @@ int main(int argc, char **argv)
 																		((surplus_query_number_per_rank > 0) ? 1 : 0);
 
 		for (int i = 1; i < size; i++)
-			MPI_Send(&(query_set.seq[query_number_per_rank * i + 
+			MPI_Send(&query_set.seq[query_number_per_rank * i + 
 															 ((i < surplus_query_number_per_rank) ? 
-															 	 i : surplus_query_number_per_rank)]),
+															 	 i : surplus_query_number_per_rank)],
 							 query_number_per_rank + ((i < surplus_query_number_per_rank) ? 1 : 0),
 							 sequence_type,
 							 i,
