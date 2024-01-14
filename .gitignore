@@ -3,5 +3,7 @@
 !*.*
 .DS_Store
 settings.json
+output.*
+log.*
 c_cpp_properties.json
 enviroment/how-to-apollo02-login.txt
