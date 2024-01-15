@@ -763,9 +763,7 @@ int main(int argc, char **argv)
 	sequence_set query_set;
 	sequence_set database_set;
 
-	sequence sequence_for_address;
-	MPI_Datatype sequence_type = create_mpi_sequence_type(&sequence_for_address);
-	MPI_Datatype sequence_set_type = create_mpi_sequence_set_type(&query_set);
+	MPI_Datatype sequence_type = create_mpi_sequence_type(query_set.seq);
 
 	assert(argc >= 4);
 	file_matrix = argv[1];
