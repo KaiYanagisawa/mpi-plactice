@@ -820,7 +820,6 @@ int main(int argc, char **argv)
 	}
 
 	MPI_Type_free(&sequence_type);
-	MPI_Type_free(&sequence_set_type);
 	MPI_Finalize();
 
 	return 0;
