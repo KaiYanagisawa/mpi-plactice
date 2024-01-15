@@ -781,7 +781,6 @@ int main(int argc, char **argv)
 		int surplus_query_number_per_rank;
 		int rank0_query_number;
 
-
 		query_number_per_rank         = query_set.num / size;
 		surplus_query_number_per_rank = query_set.num % size;
 		rank0_query_number 	          = query_number_per_rank +
