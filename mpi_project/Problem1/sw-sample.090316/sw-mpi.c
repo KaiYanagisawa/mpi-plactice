@@ -690,22 +690,23 @@ int get_smith_waterman_score(sequence *seq0, sequence *seq1)
 MPI_Datatype create_mpi_sequence_type(sequence *sequence_for_address)
 {
 	MPI_Datatype sequence_type;
-	int sequence_block_lengths[4] = {1, 1, 1, 1};
-	MPI_Aint sequence_displacements[4];
-	MPI_Datatype sequence_types[4] = {MPI_INT, MPI_CHAR, MPI_CHAR, MPI_INT};
+	int sequence_block_lengths[5] = {1, 1, 1, 1, 1};
+	MPI_Aint sequence_displacements[5];
+	MPI_Datatype sequence_types[5] = {MPI_INT, MPI_CHAR, MPI_CHAR, MPI_INT, MPI_UB};
 
 	MPI_Address(&sequence_for_address->len, &sequence_displacements[0]);
 	MPI_Address(&sequence_for_address->name, &sequence_displacements[1]);
 	MPI_Address(&sequence_for_address->array, &sequence_displacements[2]);
 	MPI_Address(&sequence_for_address->score, &sequence_displacements[3]);
+	MPI_Address(&sequence_for_address->len, &sequence_displacements[4]);
 
 	MPI_Aint sequence_base;
-	MPI_Address(sequence_for_address, &sequence_base);
+	sequence_base = sequence_displacements[0];
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 5; i++)
 		sequence_displacements[i] -= sequence_base;
 
-	MPI_Type_struct(4,
+	MPI_Type_struct(5,
 									sequence_block_lengths,
 									sequence_displacements,
 									sequence_types,
