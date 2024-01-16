@@ -756,7 +756,7 @@ int main(int argc, char **argv)
 
 		query_number_per_rank         = query_set.num / size;
 		surplus_query_number_per_rank = query_set.num % size;
-		rank0_query_number 	          = query_number_per_rank +
+		rank0_query_number 	          = query_number_per_rank + 
 																		((surplus_query_number_per_rank > 0) ? 1 : 0);
 
 		printf("query=%c\n", query_set.seq[0].name[4]);
