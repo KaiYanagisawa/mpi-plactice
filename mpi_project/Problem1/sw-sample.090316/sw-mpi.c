@@ -716,33 +716,6 @@ MPI_Datatype create_mpi_sequence_type(sequence *sequence_for_address)
 	return sequence_type;
 }
 
-MPI_Datatype create_mpi_sequence_set_type(sequence_set *query_set)
-{
-	MPI_Datatype sequence_set_type;
-	int sequence_set_block_lengths[3] = {1, 1, 1};
-	MPI_Aint sequence_set_displacements[3];
-	MPI_Datatype sequence_set_types[3] = {MPI_INT, MPI_INT, MPI_UB};
-
-	MPI_Address(&query_set->num, &sequence_set_displacements[0]);
-	MPI_Address(&query_set->max, &sequence_set_displacements[1]);
-	MPI_Address(&query_set->seq[0], &sequence_set_displacements[2]);
-
-	MPI_Aint sequence_set_base;
-	MPI_Address(query_set, &sequence_set_base);
-
-	for (int i = 0; i < 3; i++)
-		sequence_set_displacements[i] -= sequence_set_base;
-
-	MPI_Type_struct(3,
-									sequence_set_block_lengths,
-									sequence_set_displacements,
-									sequence_set_types,
-									&sequence_set_type);
-	MPI_Type_commit(&sequence_set_type);
-
-	return sequence_set_type;
-}
-
 /*
  *
  */
@@ -786,15 +759,7 @@ int main(int argc, char **argv)
 		rank0_query_number 	          = query_number_per_rank +
 																		((surplus_query_number_per_rank > 0) ? 1 : 0);
 
-		for (int i = 1; i < size; i++)
-			MPI_Send(&query_set.seq[query_number_per_rank * i + 
-															 ((i < surplus_query_number_per_rank) ? 
-															 	 i : surplus_query_number_per_rank)],
-							 query_number_per_rank + ((i < surplus_query_number_per_rank) ? 1 : 0),
-							 sequence_type,
-							 i,
-							 10,
-							 MPI_COMM_WORLD);
+		printf("query=%c\n", query_set.seq[0].name[4]);
 
 		for (int i = 1; i < size; i++)
 			MPI_Send(&query_set.seq[60], 40, sequence_type, i, 10, MPI_COMM_WORLD);
@@ -812,11 +777,52 @@ int main(int argc, char **argv)
 		int count;
 		int max;
 		int receive_length;
-		
 
-		MPI_Recv(query_set.seq, query_set.num, sequence_type, 0, 10, MPI_COMM_WORLD, &status);
+		// size = sizeof(sequence) * query_set.max;
+		// query_set.seq = (sequence *)malloc_e(size, "set->seq");
+
+		MPI_Recv(query_set.seq, 40, sequence_type, 0, 10, MPI_COMM_WORLD, &status);
 		MPI_Get_count(&status, sequence_type, &count);
 
+		printf("recvsize=%d\n", count);
+
+		printf("query=%d\n", (query_set.seq[0]).len);
+		printf("query=%c\n", (query_set.seq[0].name[0]));
+		// printf("query=%d\n", receive_query[0].len);
+		// printf("query=%c\n", receive_query[0].name[0]);
+
+		/*
+		 *
+		 */
+		// for (id_query = 0; id_query < count; id_query++)
+		// {
+		// 	/*
+		// 	 *  look for the best score of the query sequence.
+		// 	 */
+		// 	best_score = -1;
+
+		// 	for (id_database = 0; id_database < database_set.num; id_database++)
+		// 	{
+		// 		score = get_smith_waterman_score(&(query_set.seq[id_query]),
+		// 																		 &(database_set.seq[id_database]));
+		// 		if (best_score < score)
+		// 		{
+		// 			best_score = score;
+		// 		}
+		// 		database_set.seq[id_database].score = score;
+		// 	}
+
+		// 	query_set.seq[id_query].score = best_score;
+
+		// 	/*
+		// 	 *  show alignment of sequence pairs at the best score.
+		// 	 */
+		// 	for (id_database = 0; id_database < database_set.num; id_database++)
+		// 	{
+		// 		show_alignment(&(query_set.seq[id_query]),
+		// 									 &(database_set.seq[id_database]));
+		// 	}
+		// }
 	}
 
 	MPI_Type_free(&sequence_type);
