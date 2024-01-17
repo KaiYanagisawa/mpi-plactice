@@ -835,7 +835,6 @@ int main(int argc, char **argv)
 			query_set.seq[id_query].score = best_score;
 		}
 	}
-	MPI_Barrier(MPI_COMM_WORLD);
 
 	MPI_Finalize();
 
