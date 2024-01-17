@@ -737,33 +737,6 @@ int main(int argc, char **argv)
 	sequence_set query_set;
 	sequence_set database_set;
 
-	// MPI_Datatype sequence_type = create_mpi_sequence_type(query_set.seq);
-
-	// MPI_Datatype sequence_type;
-	// int sequence_block_lengths[5] = {1, 27, 1, 1, 1};
-	// MPI_Aint sequence_displacements[5];
-	// MPI_Datatype sequence_types[5] = {MPI_INT, MPI_CHAR, MPI_CHAR, MPI_INT, MPI_UB};
-
-	// MPI_Address(&query_set.seq[0].len, &sequence_displacements[0]);
-	// MPI_Address(&query_set.seq[0].name, &sequence_displacements[1]);
-	// MPI_Address(&query_set.seq[0].array, &sequence_displacements[2]);
-	// MPI_Address(&query_set.seq[0].score, &sequence_displacements[3]);
-	// MPI_Address(&query_set.seq[1].len, &sequence_displacements[4]);
-
-	// MPI_Aint sequence_base;
-	// sequence_base = sequence_displacements[0];
-
-	// for (int i = 0; i < 5; i++)
-	// 	sequence_displacements[i] -= sequence_base;
-
-	// MPI_Type_struct(5,
-	// 								sequence_block_lengths,
-	// 								sequence_displacements,
-	// 								sequence_types,
-	// 								&sequence_type);
-	// MPI_Type_commit(&sequence_type);
-
-
 	assert(argc >= 4);
 	file_matrix = argv[1];
 	file_query = argv[2];
@@ -784,83 +757,95 @@ int main(int argc, char **argv)
 		rank0_query_number 	          = query_number_per_rank + 
 																		((surplus_query_number_per_rank > 0) ? 1 : 0);
 
-		printf("query=%s\n", query_set.seq[0].name);
-		printf("query_max=%d\n", query_set.max);
-		printf("query_num=%d\n", query_set.num);
-		printf("query=%c\n", query_set.seq[0].array[0] + 'A');
+		for (int i = 1; i < size; i++)
+		{
+			int query_start;
+			int number_of_queries;
 
-		// MPI_Send(&query_set.seq[60], 1, sequence_type, 1, 10, MPI_COMM_WORLD);
-		// for (int i = 1; i < size; i++)
-			// MPI_Send(query_set.seq[60].name, 27, MPI_CHAR, i, 10, MPI_COMM_WORLD);
-			// MPI_Send(query_set.seq[60].array, 1, MPI_BYTE, i, 10, MPI_COMM_WORLD);
-			// MPI_Send(&query_set.seq[query_number_per_rank * i + 
-			// 												 ((i < surplus_query_number_per_rank) ? 
-			// 												 	 i : surplus_query_number_per_rank)],
-			// 				 query_number_per_rank + ((i < surplus_query_number_per_rank) ? 1 : 0),
-			// 				 sequence_type,
-			// 				 i,
-			// 				 10,
-			// 				 MPI_COMM_WORLD);
-	}
-	else
-	{
-		int count;
-		int max;
-		int receive_length;
+			query_start 			= query_number_per_rank * i + 
+													((i < surplus_query_number_per_rank) ? i : surplus_query_number_per_rank);
+			number_of_queries = query_number_per_rank + ((i < surplus_query_number_per_rank) ? 1 : 0);
 
-		// char query[1600];
-		// sequence query[100];
-		// query[0].name = (char *)malloc_e(30, "seq->name");
-
-		// MPI_Recv(query, 154, MPI_CHAR, 0, 10, MPI_COMM_WORLD, &status);
-		// MPI_Recv(query, 40, sequence_type, 0, 10, MPI_COMM_WORLD, &status);
-		MPI_Recv(query_set.seq, 40, sequence_type, 0, 10, MPI_COMM_WORLD, &status);
-		MPI_Get_count(&status, sequence_type, &count);
-
-		printf("recv_size=%d\n", count);
-
-		// for (int i = 0; i < 154; i++)
-			// printf("%c", query[i] + 'A');
-		// printf("query=%d\n", query[0].len);
-		// printf("query=%s\n", query[0].name);
-		printf("query=%d\n", query_set.seq[0].len);
-		printf("query=%c\n", query_set.seq[0].name[2] + 'A');
+			MPI_Send(&query_start, 1, MPI_INT, i, 10, MPI_COMM_WORLD);
+			MPI_Send(&number_of_queries, 1, MPI_INT, i, 11, MPI_COMM_WORLD);
+		}
 
 		/*
 		 *
 		 */
-		// for (id_query = 0; id_query < count; id_query++)
-		// {
-		// 	/*
-		// 	 *  look for the best score of the query sequence.
-		// 	 */
-		// 	best_score = -1;
+		for (id_query = 0; id_query < rank0_query_number; id_query++)
+		{
+			/*
+			 *  look for the best score of the query sequence.
+			 */
+			best_score = -1;
 
-		// 	for (id_database = 0; id_database < database_set.num; id_database++)
-		// 	{
-		// 		score = get_smith_waterman_score(&(query_set.seq[id_query]),
-		// 																		 &(database_set.seq[id_database]));
-		// 		if (best_score < score)
-		// 		{
-		// 			best_score = score;
-		// 		}
-		// 		database_set.seq[id_database].score = score;
-		// 	}
+			for (id_database = 0; id_database < database_set.num; id_database++)
+			{
+				score = get_smith_waterman_score(&(query_set.seq[id_query]),
+																				 &(database_set.seq[id_database]));
+				if (best_score < score)
+				{
+					best_score = score;
+				}
+				database_set.seq[id_database].score = score;
+			}
 
-		// 	query_set.seq[id_query].score = best_score;
+			query_set.seq[id_query].score = best_score;
 
-		// 	/*
-		// 	 *  show alignment of sequence pairs at the best score.
-		// 	 */
-		// 	for (id_database = 0; id_database < database_set.num; id_database++)
-		// 	{
-		// 		show_alignment(&(query_set.seq[id_query]),
-		// 									 &(database_set.seq[id_database]));
-		// 	}
-		// }
+			/*
+			 *  show alignment of sequence pairs at the best score.
+			 */
+			for (id_database = 0; id_database < database_set.num; id_database++)
+			{
+				show_alignment(&(query_set.seq[id_query]),
+											 &(database_set.seq[id_database]));
+			}
+		}
 	}
+	else
+	{
+		int query_start;
+		int number_of_queries;
 
-	MPI_Type_free(&sequence_type);
+		MPI_Recv(&query_start, 1, MPI_INT, 0, 10, MPI_COMM_WORLD, &status);
+		MPI_Recv(&number_of_queries, 1, MPI_INT, 0, 11, MPI_COMM_WORLD, &status);
+
+		/*
+		 *
+		 */
+		for (id_query = query_start; id_query < query_start + number_of_queries; id_query++)
+		{
+			/*
+			 *  look for the best score of the query sequence.
+			 */
+			best_score = -1;
+
+			for (id_database = 0; id_database < database_set.num; id_database++)
+			{
+				score = get_smith_waterman_score(&(query_set.seq[id_query]),
+																				 &(database_set.seq[id_database]));
+				if (best_score < score)
+				{
+					best_score = score;
+				}
+				database_set.seq[id_database].score = score;
+			}
+
+			query_set.seq[id_query].score = best_score;
+
+			/*
+			 *  show alignment of sequence pairs at the best score.
+			 */
+			for (id_database = 0; id_database < database_set.num; id_database++)
+			{
+				show_alignment(&(query_set.seq[id_query]),
+											 &(database_set.seq[id_database]));
+			}
+		}
+	}
+	MPI_Barrier(MPI_COMM_WORLD);
+
 	MPI_Finalize();
 
 	return 0;
