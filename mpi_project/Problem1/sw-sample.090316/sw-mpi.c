@@ -833,15 +833,6 @@ int main(int argc, char **argv)
 			}
 
 			query_set.seq[id_query].score = best_score;
-
-			/*
-			 *  show alignment of sequence pairs at the best score.
-			 */
-			for (id_database = 0; id_database < database_set.num; id_database++)
-			{
-				show_alignment(&(query_set.seq[id_query]),
-											 &(database_set.seq[id_database]));
-			}
 		}
 	}
 	MPI_Barrier(MPI_COMM_WORLD);
