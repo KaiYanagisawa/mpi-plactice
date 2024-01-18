@@ -729,7 +729,6 @@ int main(int argc, char **argv)
 	int best_score;
 	int score;
 	int rank, size;
-	int finish_show_alignment;
 	MPI_Status status;
 	MPI_Init(&argc, &argv);
 	MPI_Comm_size(MPI_COMM_WORLD, &size);
@@ -803,9 +802,6 @@ int main(int argc, char **argv)
 											 &(database_set.seq[id_database]));
 			}
 		}
-
-		// finish_show_alignment = 1;
-		// MPI_Send(&finish_show_alignment, 1, MPI_INT, rank + 1, 12, MPI_COMM_WORLD);
 	}
 	else
 	{
@@ -842,33 +838,12 @@ int main(int argc, char **argv)
 			/*
 			 *  show alignment of sequence pairs at the best score.
 			 */
-			// for (id_database = 0; id_database < database_set.num; id_database++)
-			// {
-			// 	show_alignment(&(query_set.seq[id_query]),
-			// 								 &(database_set.seq[id_database]));
-			// }
-		}
-
-		// while (MPI_Iprobe(rank - 1, 12, MPI_COMM_WORLD, &flag, &status), !flag) {}
-		// MPI_Recv(&finish_show_alignment, 1, MPI_INT, rank - 1, 12, MPI_COMM_WORLD, &status);
-
-		/*
-		 *  show alignment of sequence pairs at the best score.
-		 */
-		for (id_query = query_start; id_query < query_start + number_of_queries; id_query++)
-		{
 			for (id_database = 0; id_database < database_set.num; id_database++)
 			{
 				show_alignment(&(query_set.seq[id_query]),
 											 &(database_set.seq[id_database]));
 			}
 		}
-
-		// if (rank != size - 1)
-		// {
-		// 	finish_show_alignment = 1;
-		// 	MPI_Send(&finish_show_alignment, 1, MPI_INT, rank + 1, 12, MPI_COMM_WORLD);
-		// }
 	}
 
 	MPI_Finalize();
