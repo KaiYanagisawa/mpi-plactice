@@ -695,6 +695,7 @@ int main(int argc, char **argv)
 	char *file_matrix;
 	char *file_query;
 	char *file_database;
+	char *file_output;
 	int id_query;
 	int id_database;
 	int best_score;
@@ -708,10 +709,11 @@ int main(int argc, char **argv)
 	sequence_set query_set;
 	sequence_set database_set;
 
-	assert(argc >= 4);
+	assert(argc >= 5);
 	file_matrix = argv[1];
 	file_query = argv[2];
 	file_database = argv[3];
+	file_output = argv[4];
 
 	load_score_matrix(file_matrix);
 	load_sequence_set(file_query, &query_set);
