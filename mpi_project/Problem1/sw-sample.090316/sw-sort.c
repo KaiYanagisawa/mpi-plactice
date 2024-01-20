@@ -20,8 +20,13 @@ typedef struct
 
   int best_score;
 
+  int q_start;
   char q[512];
+  int q_end;
+
+  int d_start;
   char d[512];
+  int d_end;
 } output_info;
 
 int compare_sequences(const void *a, const void *b)
