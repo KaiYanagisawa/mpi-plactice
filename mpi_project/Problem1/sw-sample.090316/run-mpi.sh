@@ -3,7 +3,7 @@
 #
 CORE=${2:-2}
 BIN="mpiexec -n $CORE ./sw-mpi"
-SORT_BIN="mpiexec -n $CORE ./sw-sort"
+SORT_BIN="./sw-sort"
 TIMECMD="/usr/bin/time -p"
 
 DIR=${1:-p0}

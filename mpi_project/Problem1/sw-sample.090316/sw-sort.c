@@ -5,7 +5,6 @@
 #include <errno.h>
 #include <ctype.h>
 #include <limits.h>
-#include <mpi.h>
 
 #define LINE_MAX 2048
 
@@ -54,59 +53,53 @@ int compare_sequences(const void *a, const void *b)
 
 int main(int argc, char **argv)
 {
-	char *file_output;
-  int rank, size;
-  MPI_Status status;
-  MPI_Init(&argc, &argv);
-  MPI_Comm_size(MPI_COMM_WORLD, &size);
-  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+  char *file_output;
 
   assert(argc >= 2);
   file_output = argv[1];
 
-  if (rank == 0)
+  char line[LINE_MAX];
+  int count;
+  int i;
+  printf("sort_start\n");
+
+  output_info *sequences;
+  sequences = (output_info *)malloc(1 * sizeof(output_info));
+
+  FILE *input_file;
+  input_file = fopen(file_output, "r");
+  if (input_file == NULL)
   {
-    char line[LINE_MAX];
-    int count;
-    int i;
-    printf("sort_start\n");
+    fprintf(stderr, "fopen failed: input_file\n");
+    exit(EXIT_FAILURE);
+  }
+  count = 0;
+  while (fgets(line, LINE_MAX, input_file) != NULL)
+  {
+    sscanf(line, "Query sequence: %d_%s_%d", &sequences[count].query_id, sequences[count].query_name, &sequences[count].query_length);
+    fgets(line, LINE_MAX, input_file);
+    sscanf(line, "Database sequence: %d_%s_%d", &sequences[count].database_id, sequences[count].database_name, &sequences[count].database_length);
+    fgets(line, LINE_MAX, input_file);
+    sscanf(line, "Best score: %d", &sequences[count].best_score);
+    fgets(line, LINE_MAX, input_file);
+    sscanf(line, "Q: %s", sequences[count].q);
+    fgets(line, LINE_MAX, input_file);
+    sscanf(line, "D: %s", sequences[count].d);
+    fgets(line, LINE_MAX, input_file);
 
-    output_info *sequences;
-    sequences = (output_info *)malloc(1 * sizeof(output_info));
+    count++;
 
-    FILE *input_file;
-    input_file = fopen(file_output, "r");
-    if (input_file == NULL)
-    {
-      fprintf(stderr, "fopen failed: input_file\n");
-      exit(EXIT_FAILURE);
-    }
-    count = 0;
-    while (fgets(line, LINE_MAX, input_file) != NULL)
-    {
-      sscanf(line, "Query sequence: %d_%s_%d", &sequences[count].query_id, sequences[count].query_name, &sequences[count].query_length);
-      fgets(line, LINE_MAX, input_file);
-      sscanf(line, "Database sequence: %d_%s_%d", &sequences[count].database_id, sequences[count].database_name, &sequences[count].database_length);
-      fgets(line, LINE_MAX, input_file);
-      sscanf(line, "Best score: %d", &sequences[count].best_score);
-      fgets(line, LINE_MAX, input_file);
-      sscanf(line, "Q: %s", sequences[count].q);
-      fgets(line, LINE_MAX, input_file);
-      sscanf(line, "D: %s", sequences[count].d);
-      fgets(line, LINE_MAX, input_file);
+    sequences = (output_info *)realloc(sequences, count * sizeof(output_info));
+  }
+  fclose(input_file);
 
-      count++;
-
-      sequences = (output_info *)realloc(sequences, count * sizeof(output_info));
-    }
-    fclose(input_file);
-
-    qsort(sequences, count, sizeof(output_info), compare_sequences);
-
-    free(sequences);
+  qsort(sequences, count, sizeof(output_info), compare_sequences);
+  for (i = 0; i < count; i++)
+  {
+    printf("%d %d\n", sequences[i].query_id, sequences[i].database_id);
   }
 
-  MPI_Finalize();
+  free(sequences);
 
   return 0;
 }
