@@ -65,7 +65,8 @@ int main(int argc, char **argv)
   output_info *sequences;
   sequences = (output_info *)malloc(1 * sizeof(output_info));
 
-  FILE *input_file;
+  FILE *input_file, *sort_file;
+
   input_file = fopen(file_output, "r");
   if (input_file == NULL)
   {
@@ -101,10 +102,31 @@ int main(int argc, char **argv)
   fclose(input_file);
 
   qsort(sequences, count, sizeof(output_info), compare_sequences);
+
+  sort_file = fopen(file_output, "w");
+  if (sort_file == NULL)
+  {
+    perror("Error opening sort_file");
+    exit(EXIT_FAILURE);
+  }
+
   for (i = 0; i < count; i++)
   {
-    printf("%d %d\n", sequences[i].query_id, sequences[i].database_id);
+    fprintf(sort_file,
+            "Query sequence: %d_%s_%d\n",
+            sequences[i].query_id,
+            sequences[i].query_name,
+            sequences[i].query_length);
+    fprintf(sort_file,
+            "Database sequence: %d_%s_%d\n",
+            sequences[i].database_id,
+            sequences[i].database_name,
+            sequences[i].database_length);
+    fprintf(sort_file, "Best score: %d\n", sequences[i].best_score);
+    fprintf(sort_file, "Q: %s\n", sequences[i].q);
+    fprintf(sort_file, "D: %s\n\n", sequences[i].d);
   }
+  fclose(sort_file);
 
   free(sequences);
 
