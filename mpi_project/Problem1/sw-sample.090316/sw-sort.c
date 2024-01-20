@@ -59,7 +59,8 @@ int main(int argc, char **argv)
   if (rank == 0)
   {
     char line[LINE_MAX];
-    int count = 0;
+    int count;
+    int i;
     printf("sort_start\n");
 
     output_info *sequences;
@@ -72,6 +73,7 @@ int main(int argc, char **argv)
       fprintf(stderr, "fopen failed: input_file\n");
       exit(EXIT_FAILURE);
     }
+    count = 0;
     while (fgets(line, LINE_MAX, input_file) != NULL)
     {
       sscanf(line, "Query sequence: %s", sequences[count].query_sequence);
