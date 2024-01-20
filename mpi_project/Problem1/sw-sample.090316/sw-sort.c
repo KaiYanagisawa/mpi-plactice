@@ -18,6 +18,10 @@ typedef struct
   char d[512];
 } output_info;
 
+int compare_sequences(const output_info *a, const output_info *b)
+{
+}
+
 int main(int argc, char **argv)
 {
 	char *file_output;
@@ -64,6 +68,8 @@ int main(int argc, char **argv)
       sequences = (output_info *)realloc(sequences, count * sizeof(output_info));
     }
     fclose(input_file);
+
+    qsort(sequences, count, sizeof(output_info), compare_sequences);
 
     free(sequences);
   }
