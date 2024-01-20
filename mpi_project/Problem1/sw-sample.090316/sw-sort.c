@@ -61,7 +61,6 @@ int main(int argc, char **argv)
   char line[LINE_MAX];
   int count;
   int i;
-  printf("sort_start\n");
 
   output_info *sequences;
   sequences = (output_info *)malloc(1 * sizeof(output_info));
