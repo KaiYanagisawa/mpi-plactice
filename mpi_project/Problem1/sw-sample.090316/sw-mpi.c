@@ -708,7 +708,7 @@ int main(int argc, char **argv)
 	sequence_set query_set;
 	sequence_set database_set;
 
-	assert(argc >= 5);
+	assert(argc >= 4);
 	file_matrix = argv[1];
 	file_query = argv[2];
 	file_database = argv[3];
