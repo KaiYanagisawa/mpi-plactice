@@ -712,7 +712,6 @@ int main(int argc, char **argv)
 	file_matrix = argv[1];
 	file_query = argv[2];
 	file_database = argv[3];
-	file_output = argv[4];
 
 	load_score_matrix(file_matrix);
 	load_sequence_set(file_query, &query_set);
