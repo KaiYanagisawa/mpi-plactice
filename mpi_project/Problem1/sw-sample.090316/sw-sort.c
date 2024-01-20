@@ -96,9 +96,17 @@ int main(int argc, char **argv)
     fgets(line, LINE_MAX, input_file);
     sscanf(line, "Best score: %d", &sequences[count].best_score);
     fgets(line, LINE_MAX, input_file);
-    sscanf(line, "Q: %s", sequences[count].q);
+    sscanf(line,
+           "Q: %d %s %d",
+           &sequences[count].q_start,
+           sequences[count].q,
+           &sequences[count].q_end);
     fgets(line, LINE_MAX, input_file);
-    sscanf(line, "D: %s", sequences[count].d);
+    sscanf(line,
+           "D: %d %s %d",
+           &sequences[count].d_start,
+           sequences[count].d,
+           &sequences[count].d_end);
     fgets(line, LINE_MAX, input_file);
 
     count++;
