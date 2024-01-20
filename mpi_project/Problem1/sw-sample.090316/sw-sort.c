@@ -18,8 +18,33 @@ typedef struct
   char d[512];
 } output_info;
 
-int compare_sequences(const output_info *a, const output_info *b)
+int extract_query_id(const output_info sequence)
 {
+  int query_id;
+  int length = strlen(sequence.query_sequence);
+  char char_query_id[20];
+  char query[length];
+
+  memcpy(query, sequence.query_sequence, length);
+
+  printf("%s\n", sequence.query_sequence);
+  printf("%s\n", query);
+
+  for (int i = 0; i < length && query[i] != '_'; i++)
+  {
+    if (query[i] >= '0' && query[i] <= '9')
+    {
+      char_query_id[i] = query[i];
+    }
+    else
+    {
+      break;
+    }
+  }
+
+  query_id = atoi(char_query_id);
+
+  return query_id;
 }
 
 int main(int argc, char **argv)
