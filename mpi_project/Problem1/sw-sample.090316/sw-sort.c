@@ -25,31 +25,55 @@ typedef struct
   char d[512];
 } output_info;
 
-int extract_query_id(const output_info sequence)
-{
-  int query_id;
-  int length = strlen(sequence.query_sequence);
-  char char_query_id[20];
-  char query[length];
+// int extract_query_id(const output_info sequence)
+// {
+//   int query_id;
+//   int length = strlen(sequence.query_sequence);
+//   char char_query_id[20];
+//   char query[length];
 
-  memcpy(query, sequence.query_sequence, length);
+//   memcpy(query, sequence.query_sequence, length);
 
-  for (int i = 0; i < length && query[i] != '_'; i++)
-  {
-    if (query[i] >= '0' && query[i] <= '9')
-    {
-      char_query_id[i] = query[i];
-    }
-    else
-    {
-      break;
-    }
-  }
+//   for (int i = 0; i < length && query[i] != '_'; i++)
+//   {
+//     if (query[i] >= '0' && query[i] <= '9')
+//     {
+//       char_query_id[i] = query[i];
+//     }
+//     else
+//     {
+//       break;
+//     }
+//   }
 
-  query_id = atoi(char_query_id);
+//   query_id = atoi(char_query_id);
 
-  return query_id;
-}
+//   return query_id;
+// }
+
+// int compare_sequences(const void *a, const void *b)
+// {
+  // int a_number;
+  // int b_number;
+
+  // a_number = extract_query_id(*(output_info *)a);
+  // b_number = extract_query_id(*(output_info *)b);
+
+  // printf("%d %d\n", a_number, b_number);
+  // if (a_number > b_number)
+  // {
+  //   return 1;
+  // }
+  // else if (a_number < b_number)
+  // {
+  //   return -1;
+  // }
+  // else
+  // {
+  //   return 0;
+  // }
+  // return strcmp(((output_info *)a)->query_sequence, ((output_info *)b)->query_sequence);
+// }
 
 int main(int argc, char **argv)
 {
