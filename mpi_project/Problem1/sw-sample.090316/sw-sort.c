@@ -78,13 +78,13 @@ int main(int argc, char **argv)
   while (fgets(line, LINE_MAX, input_file) != NULL)
   {
     sscanf(line,
-           "Query sequence: %d_%s_%d",
+           "Query sequence: %d_%[^_]_%d",
            &sequences[count].query_id,
            sequences[count].query_name,
            &sequences[count].query_length);
     fgets(line, LINE_MAX, input_file);
     sscanf(line,
-           "Database sequence: %d_%s_%d",
+           "Database sequence: %d_%[^_]_%d",
            &sequences[count].database_id,
            sequences[count].database_name,
            &sequences[count].database_length);
