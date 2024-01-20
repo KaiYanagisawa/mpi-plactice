@@ -11,9 +11,16 @@
 
 typedef struct
 {
-  char query_sequence[128];
-  char database_sequence[128];
-  int bestScore;
+  int query_id;
+  char query_name[64];
+  int query_length;
+
+  int database_id;
+  char database_name[64];
+  int database_length;
+
+  int best_score;
+
   char q[512];
   char d[512];
 } output_info;
@@ -76,11 +83,11 @@ int main(int argc, char **argv)
     count = 0;
     while (fgets(line, LINE_MAX, input_file) != NULL)
     {
-      sscanf(line, "Query sequence: %s", sequences[count].query_sequence);
+      sscanf(line, "Query sequence: %d_%s_%d", &sequences[count].query_id, sequences[count].query_name, &sequences[count].query_length);
       fgets(line, LINE_MAX, input_file);
-      sscanf(line, "Database sequence: %s", sequences[count].database_sequence);
+      sscanf(line, "Database sequence: %d_%s_%d", &sequences[count].database_id, sequences[count].database_name, &sequences[count].database_length);
       fgets(line, LINE_MAX, input_file);
-      sscanf(line, "Best score: %d", &sequences[count].bestScore);
+      sscanf(line, "Best score: %d", &sequences[count].best_score);
       fgets(line, LINE_MAX, input_file);
       sscanf(line, "Q: %s", sequences[count].q);
       fgets(line, LINE_MAX, input_file);
