@@ -21,11 +21,11 @@ typedef struct
   int best_score;
 
   int q_start;
-  char q[512];
+  char q[1024];
   int q_end;
 
   int d_start;
-  char d[512];
+  char d[1024];
   int d_end;
 } output_info;
 
@@ -137,8 +137,16 @@ int main(int argc, char **argv)
             sequences[i].database_name,
             sequences[i].database_length);
     fprintf(sort_file, "Best score: %d\n", sequences[i].best_score);
-    fprintf(sort_file, "Q: %s\n", sequences[i].q);
-    fprintf(sort_file, "D: %s\n\n", sequences[i].d);
+    fprintf(sort_file,
+            "Q:%7d %s %d\n",
+            sequences[i].q_start,
+            sequences[i].q,
+            sequences[i].q_end);
+    fprintf(sort_file,
+            "D:%7d %s %d\n\n",
+            sequences[i].d_start,
+            sequences[i].d,
+            sequences[i].d_end);
   }
   fclose(sort_file);
 
