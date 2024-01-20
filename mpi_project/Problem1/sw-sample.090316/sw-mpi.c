@@ -695,7 +695,6 @@ int main(int argc, char **argv)
 	char *file_matrix;
 	char *file_query;
 	char *file_database;
-	char *file_output;
 	int id_query;
 	int id_database;
 	int best_score;
@@ -818,8 +817,6 @@ int main(int argc, char **argv)
 			}
 		}
 	}
-
-	MPI_Barrier(MPI_COMM_WORLD);
 
 	MPI_Finalize();
 
