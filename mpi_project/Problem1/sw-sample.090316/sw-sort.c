@@ -37,7 +37,18 @@ int compare_sequences(const void *a, const void *b)
   }
   else
   {
-    return 0;
+    if (((output_info *)a)->database_id > ((output_info *)b)->database_id)
+    {
+      return 1;
+    }
+    else if (((output_info *)a)->database_id < ((output_info *)b)->database_id)
+    {
+      return -1;
+    }
+    else
+    {
+      return 0;
+    }
   }
 }
 
