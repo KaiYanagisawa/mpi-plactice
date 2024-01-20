@@ -25,32 +25,6 @@ typedef struct
   char d[512];
 } output_info;
 
-// int extract_query_id(const output_info sequence)
-// {
-//   int query_id;
-//   int length = strlen(sequence.query_sequence);
-//   char char_query_id[20];
-//   char query[length];
-
-//   memcpy(query, sequence.query_sequence, length);
-
-//   for (int i = 0; i < length && query[i] != '_'; i++)
-//   {
-//     if (query[i] >= '0' && query[i] <= '9')
-//     {
-//       char_query_id[i] = query[i];
-//     }
-//     else
-//     {
-//       break;
-//     }
-//   }
-
-//   query_id = atoi(char_query_id);
-
-//   return query_id;
-// }
-
 int compare_sequences(const void *a, const void *b)
 {
   if (((output_info *)a)->query_id > ((output_info *)b)->query_id)
