@@ -73,6 +73,7 @@ int main(int argc, char **argv)
     fprintf(stderr, "fopen failed: input_file\n");
     exit(EXIT_FAILURE);
   }
+
   count = 0;
   while (fgets(line, LINE_MAX, input_file) != NULL)
   {
