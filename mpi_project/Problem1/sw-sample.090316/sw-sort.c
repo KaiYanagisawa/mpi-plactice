@@ -27,9 +27,6 @@ int extract_query_id(const output_info sequence)
 
   memcpy(query, sequence.query_sequence, length);
 
-  printf("%s\n", sequence.query_sequence);
-  printf("%s\n", query);
-
   for (int i = 0; i < length && query[i] != '_'; i++)
   {
     if (query[i] >= '0' && query[i] <= '9')
