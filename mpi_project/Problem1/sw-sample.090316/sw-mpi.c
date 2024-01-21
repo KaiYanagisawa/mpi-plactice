@@ -340,6 +340,8 @@ void show_alignment(sequence *seq0, sequence *seq1)
 	int t;
 	int tlen = 0;
 	char link;
+	char output[LINE_MAX];
+	char to_char[32];
 	size_t size;
 	link_info *linfo;
 
@@ -521,49 +523,66 @@ void show_alignment(sequence *seq0, sequence *seq1)
 	/*
 	 *  show result
 	 */
-	printf("Query sequence: %s\n", seq0->name);
-	printf("Database sequence: %s\n", seq1->name);
-	printf("Best score: %d\n", best_score);
+	sprintf(output, "Query sequence: %s\n", seq0->name);
+
+	strcat(output, "Database sequence: ");
+	strcat(output, seq1->name);
+	strcat(output, "\n");
+
+	snprintf(to_char, 32, "%d", best_score);
+	strcat(output, "Best score: ");
+	strcat(output, to_char);
+	strcat(output, "\n");
 
 	if (tlen > 0)
 	{
 		/* query */
-		printf("Q:%7d ", p0[tlen - 1]);
+		snprintf(to_char, 32, "%7d ", p0[tlen - 1]);
+		strcat(output, "Q:");
+		strcat(output, to_char);
+
 		pre = -1;
 		for (t = tlen - 1; t >= 0; t--)
 		{
 			cur = p0[t];
 			if (cur != pre)
 			{
-				printf("%c", seq0->array[cur - 1] + 'A');
+				snprintf(to_char, 32, "%c", seq0->array[cur - 1] + 'A');
+				strcat(output, to_char);
 			}
 			else
 			{
-				printf("-");
+				strcat(output, "-");
 			}
 			pre = cur;
 		}
-		printf(" %d\n", p0[0]);
+		snprintf(to_char, 32, "%d", p0[0]);
+		strcat(output, to_char);
+		strcat(output, "\n");
 
 		/* database */
-		printf("D:%7d ", p1[tlen - 1]);
+		snprintf(to_char, 32, "%7d ", p1[tlen - 1]);
+		strcat(output, "D:");
+		strcat(output, to_char);
 		pre = -1;
 		for (t = tlen - 1; t >= 0; t--)
 		{
 			cur = p1[t];
 			if (cur != pre)
 			{
-				printf("%c", seq1->array[cur - 1] + 'A');
+				snprintf(to_char, 32, "%c", seq1->array[cur - 1] + 'A');
+				strcat(output, to_char);
 			}
 			else
 			{
-				printf("-");
+				strcat(output, "-");
 			}
 			pre = cur;
 		}
-		printf(" %d\n", p1[0]);
+		snprintf(to_char, 32, " %d\n", p1[0]);
+		strcat(output, to_char);
 	}
-	printf("\n");
+	printf("%s\n", output);
 
 	free(linfo);
 	free(p0);
