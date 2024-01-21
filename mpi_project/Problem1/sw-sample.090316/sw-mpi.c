@@ -11,6 +11,7 @@
 #include <errno.h>
 #include <ctype.h>
 #include <limits.h>
+#include <mpi.h>
 
 #define DIR_NONE 0
 #define DIR_DIAG 1
@@ -339,6 +340,8 @@ void show_alignment(sequence *seq0, sequence *seq1)
 	int t;
 	int tlen = 0;
 	char link;
+	char output[LINE_MAX];
+	char to_char[32];
 	size_t size;
 	link_info *linfo;
 
@@ -520,49 +523,66 @@ void show_alignment(sequence *seq0, sequence *seq1)
 	/*
 	 *  show result
 	 */
-	printf("Query sequence: %s\n", seq0->name);
-	printf("Database sequence: %s\n", seq1->name);
-	printf("Best score: %d\n", best_score);
+	sprintf(output, "Query sequence: %s\n", seq0->name);
+
+	strcat(output, "Database sequence: ");
+	strcat(output, seq1->name);
+	strcat(output, "\n");
+
+	snprintf(to_char, 32, "%d", best_score);
+	strcat(output, "Best score: ");
+	strcat(output, to_char);
+	strcat(output, "\n");
 
 	if (tlen > 0)
 	{
 		/* query */
-		printf("Q:%7d ", p0[tlen - 1]);
+		snprintf(to_char, 32, "%7d ", p0[tlen - 1]);
+		strcat(output, "Q:");
+		strcat(output, to_char);
+
 		pre = -1;
 		for (t = tlen - 1; t >= 0; t--)
 		{
 			cur = p0[t];
 			if (cur != pre)
 			{
-				printf("%c", seq0->array[cur - 1] + 'A');
+				snprintf(to_char, 32, "%c", seq0->array[cur - 1] + 'A');
+				strcat(output, to_char);
 			}
 			else
 			{
-				printf("-");
+				strcat(output, "-");
 			}
 			pre = cur;
 		}
-		printf(" %d\n", p0[0]);
+		snprintf(to_char, 32, " %d", p0[0]);
+		strcat(output, to_char);
+		strcat(output, "\n");
 
 		/* database */
-		printf("D:%7d ", p1[tlen - 1]);
+		snprintf(to_char, 32, "%7d ", p1[tlen - 1]);
+		strcat(output, "D:");
+		strcat(output, to_char);
 		pre = -1;
 		for (t = tlen - 1; t >= 0; t--)
 		{
 			cur = p1[t];
 			if (cur != pre)
 			{
-				printf("%c", seq1->array[cur - 1] + 'A');
+				snprintf(to_char, 32, "%c", seq1->array[cur - 1] + 'A');
+				strcat(output, to_char);
 			}
 			else
 			{
-				printf("-");
+				strcat(output, "-");
 			}
 			pre = cur;
 		}
-		printf(" %d\n", p1[0]);
+		snprintf(to_char, 32, " %d\n", p1[0]);
+		strcat(output, to_char);
 	}
-	printf("\n");
+	printf("%s\n", output);
 
 	free(linfo);
 	free(p0);
@@ -698,6 +718,11 @@ int main(int argc, char **argv)
 	int id_database;
 	int best_score;
 	int score;
+	int rank, size;
+	MPI_Status status;
+	MPI_Init(&argc, &argv);
+	MPI_Comm_size(MPI_COMM_WORLD, &size);
+	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
 	sequence_set query_set;
 	sequence_set database_set;
@@ -711,41 +736,107 @@ int main(int argc, char **argv)
 	load_sequence_set(file_query, &query_set);
 	load_sequence_set(file_database, &database_set);
 
-	/*
-	 *
-	 */
-	for (id_query = 0; id_query < query_set.num; id_query++)
+	if (rank == 0)
 	{
+		int query_number_per_rank;
+		int surplus_query_number_per_rank;
+		int rank0_query_number;
 
-		/*
-		 *  look for the best score of the query sequence.
-		 */
-		best_score = -1;
+		query_number_per_rank         = query_set.num / size;
+		surplus_query_number_per_rank = query_set.num % size;
+		rank0_query_number 	          = query_number_per_rank + 
+																		((surplus_query_number_per_rank > 0) ? 1 : 0);
 
-		for (id_database = 0; id_database < database_set.num; id_database++)
+		for (int i = 1; i < size; i++)
 		{
+			int query_start;
+			int number_of_queries;
 
-			score = get_smith_waterman_score(&(query_set.seq[id_query]),
-																			 &(database_set.seq[id_database]));
-			if (best_score < score)
-			{
-				best_score = score;
-			}
-			database_set.seq[id_database].score = score;
+			query_start 			= query_number_per_rank * i + 
+													((i < surplus_query_number_per_rank) ? i : surplus_query_number_per_rank);
+			number_of_queries = query_number_per_rank + ((i < surplus_query_number_per_rank) ? 1 : 0);
+
+			MPI_Send(&query_start, 1, MPI_INT, i, 10, MPI_COMM_WORLD);
+			MPI_Send(&number_of_queries, 1, MPI_INT, i, 11, MPI_COMM_WORLD);
 		}
 
-		query_set.seq[id_query].score = best_score;
-
 		/*
-		 *  show alignment of sequence pairs at the best score.
+		 *
 		 */
-		for (id_database = 0; id_database < database_set.num; id_database++)
+		for (id_query = 0; id_query < rank0_query_number; id_query++)
 		{
+			/*
+			 *  look for the best score of the query sequence.
+			 */
+			best_score = -1;
 
-			show_alignment(&(query_set.seq[id_query]),
-										 &(database_set.seq[id_database]));
+			for (id_database = 0; id_database < database_set.num; id_database++)
+			{
+				score = get_smith_waterman_score(&(query_set.seq[id_query]),
+																				 &(database_set.seq[id_database]));
+				if (best_score < score)
+				{
+					best_score = score;
+				}
+				database_set.seq[id_database].score = score;
+			}
+
+			query_set.seq[id_query].score = best_score;
+
+			/*
+			 *  show alignment of sequence pairs at the best score.
+			 */
+			for (id_database = 0; id_database < database_set.num; id_database++)
+			{
+				show_alignment(&(query_set.seq[id_query]),
+											 &(database_set.seq[id_database]));
+			}
 		}
 	}
+	else
+	{
+		int flag;
+		int query_start;
+		int number_of_queries;
+
+		MPI_Recv(&query_start, 1, MPI_INT, 0, 10, MPI_COMM_WORLD, &status);
+		MPI_Recv(&number_of_queries, 1, MPI_INT, 0, 11, MPI_COMM_WORLD, &status);
+
+		/*
+		 *
+		 */
+		for (id_query = query_start; id_query < query_start + number_of_queries; id_query++)
+		{
+			/*
+			 *  look for the best score of the query sequence.
+			 */
+			best_score = -1;
+
+			for (id_database = 0; id_database < database_set.num; id_database++)
+			{
+				score = get_smith_waterman_score(&(query_set.seq[id_query]),
+																				 &(database_set.seq[id_database]));
+				if (best_score < score)
+				{
+					best_score = score;
+				}
+				database_set.seq[id_database].score = score;
+			}
+
+			query_set.seq[id_query].score = best_score;
+
+			/*
+			 *  show alignment of sequence pairs at the best score.
+			 */
+			for (id_database = 0; id_database < database_set.num; id_database++)
+			{
+				show_alignment(&(query_set.seq[id_query]),
+											 &(database_set.seq[id_database]));
+			}
+		}
+	}
+
+	MPI_Finalize();
 
 	return 0;
 }

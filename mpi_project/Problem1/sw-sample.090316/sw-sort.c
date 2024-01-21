@@ -1,0 +1,156 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>
+#include <errno.h>
+#include <ctype.h>
+#include <limits.h>
+
+#define LINE_MAX 2048
+
+typedef struct
+{
+  int query_id;
+  char query_name[64];
+  int query_length;
+
+  int database_id;
+  char database_name[64];
+  int database_length;
+
+  int best_score;
+
+  int q_start;
+  char q[1024];
+  int q_end;
+
+  int d_start;
+  char d[1024];
+  int d_end;
+} output_info;
+
+int compare_sequences(const void *a, const void *b)
+{
+  if (((output_info *)a)->query_id > ((output_info *)b)->query_id)
+  {
+    return 1;
+  }
+  else if (((output_info *)a)->query_id < ((output_info *)b)->query_id)
+  {
+    return -1;
+  }
+  else
+  {
+    if (((output_info *)a)->database_id > ((output_info *)b)->database_id)
+    {
+      return 1;
+    }
+    else if (((output_info *)a)->database_id < ((output_info *)b)->database_id)
+    {
+      return -1;
+    }
+    else
+    {
+      return 0;
+    }
+  }
+}
+
+int main(int argc, char **argv)
+{
+  char *file_output;
+
+  assert(argc >= 2);
+  file_output = argv[1];
+
+  char line[LINE_MAX];
+  int count;
+  int i;
+
+  output_info *sequences;
+  sequences = (output_info *)malloc(1 * sizeof(output_info));
+
+  FILE *input_file, *sort_file;
+
+  input_file = fopen(file_output, "r");
+  if (input_file == NULL)
+  {
+    fprintf(stderr, "fopen failed: input_file\n");
+    exit(EXIT_FAILURE);
+  }
+
+  count = 0;
+  while (fgets(line, LINE_MAX, input_file) != NULL)
+  {
+    sscanf(line,
+           "Query sequence: %d_%[^_]_%d",
+           &sequences[count].query_id,
+           sequences[count].query_name,
+           &sequences[count].query_length);
+    fgets(line, LINE_MAX, input_file);
+    sscanf(line,
+           "Database sequence: %d_%[^_]_%d",
+           &sequences[count].database_id,
+           sequences[count].database_name,
+           &sequences[count].database_length);
+    fgets(line, LINE_MAX, input_file);
+    sscanf(line, "Best score: %d", &sequences[count].best_score);
+    fgets(line, LINE_MAX, input_file);
+    sscanf(line,
+           "Q: %d %s %d",
+           &sequences[count].q_start,
+           sequences[count].q,
+           &sequences[count].q_end);
+    fgets(line, LINE_MAX, input_file);
+    sscanf(line,
+           "D: %d %s %d",
+           &sequences[count].d_start,
+           sequences[count].d,
+           &sequences[count].d_end);
+    fgets(line, LINE_MAX, input_file);
+
+    count++;
+
+    sequences = (output_info *)realloc(sequences, (count * 2) * sizeof(output_info));
+  }
+  fclose(input_file);
+
+  qsort(sequences, count, sizeof(output_info), compare_sequences);
+
+  sort_file = fopen(file_output, "w");
+  if (sort_file == NULL)
+  {
+    perror("Error opening sort_file");
+    exit(EXIT_FAILURE);
+  }
+
+  for (i = 0; i < count; i++)
+  {
+    fprintf(sort_file,
+            "Query sequence: %d_%s_%d\n",
+            sequences[i].query_id,
+            sequences[i].query_name,
+            sequences[i].query_length);
+    fprintf(sort_file,
+            "Database sequence: %d_%s_%d\n",
+            sequences[i].database_id,
+            sequences[i].database_name,
+            sequences[i].database_length);
+    fprintf(sort_file, "Best score: %d\n", sequences[i].best_score);
+    fprintf(sort_file,
+            "Q:%7d %s %d\n",
+            sequences[i].q_start,
+            sequences[i].q,
+            sequences[i].q_end);
+    fprintf(sort_file,
+            "D:%7d %s %d\n\n",
+            sequences[i].d_start,
+            sequences[i].d,
+            sequences[i].d_end);
+  }
+  fclose(sort_file);
+
+  free(sequences);
+
+  return 0;
+}
