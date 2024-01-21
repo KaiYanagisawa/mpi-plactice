@@ -33,7 +33,7 @@ echo "user $TOTAL_USER" >> $LOG
 echo "sys $TOTAL_SYS" >> $LOG
 cat $LOG
 
-P0SAMPLE=p0/output.sample
+P0SAMPLE=$DIR/output.sample
 DIFF=`diff $P0SAMPLE $OUTPUT`
 if [ -n "$DIFF" ]; then
   echo "# not matches sample output"
