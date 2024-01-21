@@ -556,7 +556,7 @@ void show_alignment(sequence *seq0, sequence *seq1)
 			}
 			pre = cur;
 		}
-		snprintf(to_char, 32, "%d", p0[0]);
+		snprintf(to_char, 32, " %d", p0[0]);
 		strcat(output, to_char);
 		strcat(output, "\n");
 
