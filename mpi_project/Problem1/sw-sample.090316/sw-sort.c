@@ -111,7 +111,7 @@ int main(int argc, char **argv)
 
     count++;
 
-    sequences = (output_info *)realloc(sequences, count * sizeof(output_info));
+    sequences = (output_info *)realloc(sequences, (count * 2) * sizeof(output_info));
   }
   fclose(input_file);
 
