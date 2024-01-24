@@ -38,8 +38,8 @@
   $ gcc sw-sort.c -o sw-sort
 
 ## 1.3. その他
-### 1.3.1. data_analysis.c
+### 1.3.1. data-analysis.c
 - 概要
   - データセットの分布を標準出力
 - Usage:
-  $ gcc data_analysis.c -o data_analysis && ./data_analysis [データセット名/(query or database)]
+  $ gcc data-analysis.c -o data-analysis && ./data-analysis [データセット名/(query or database)]
